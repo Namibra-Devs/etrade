@@ -1,2 +1,2 @@
 # etrade
-An ecommerce web application for buying and selling of properties between traders and users
+An ecommerce web platform for buying and selling of properties between traders and customers
