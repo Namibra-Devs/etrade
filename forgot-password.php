@@ -1,3 +1,4 @@
+<?php ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -36,15 +37,15 @@
         <div class="signin-header">
             <div class="row align-items-center">
                 <div class="col-xl-4 col-sm-6">
-                    <a href="index.html" class="site-logo"><img src="./assets/images/logo/logo.png" alt="logo"></a>
+                    <a href="index.php" class="site-logo"><img src="./assets/images/logo/logo.png" alt="logo"></a>
                 </div>
                 <div class="col-md-2 d-lg-block d-none">
-                    <a href="sign-in.html" class="back-btn"><i class="far fa-angle-left"></i></a>
+                    <a href="sign-in.php" class="back-btn"><i class="far fa-angle-left"></i></a>
                 </div>
                 <div class="col-xl-6 col-lg-4 col-sm-6">
                     <div class="singin-header-btn">
                         <p>Already a member?</p>
-                        <a href="sign-in.html" class="sign-up-btn axil-btn btn-bg-secondary">Sign In</a>
+                        <a href="sign-in.php" class="sign-up-btn axil-btn btn-bg-secondary">Sign In</a>
                     </div>
                 </div>
             </div>
