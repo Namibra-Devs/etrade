@@ -57,6 +57,7 @@
         contactForm: function() {
             $('.axil-contact-form').on('submit', function(e) {
                 e.preventDefault();
+                // console.log({data}, "Hello AJAX");
                 var _self = $(this);
                 var _selector = _self.closest('input,textarea');
                 _self.closest('div').find('input,textarea').removeAttr('style');
@@ -64,16 +65,18 @@
                 _self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
                 var data = $(this).serialize();
                 $.ajax({
-                    url: 'mail.php',
+                    url: './helpers/mail.php',
                     type: "post",
                     dataType: 'json',
                     data: data,
                     success: function(data) {
+                        console.log({data}, "Hello AJAX");
                         _self.closest('div').find('button[type="submit"]').removeAttr('disabled');
                         if (data.code == false) {
                             _self.closest('div').find('[name="' + data.field + '"]');
                             _self.find('.axil-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
                         } else {
+                            alert("Email has been sent successfully!")
                             $('.error-msg').hide();
                             $('.form-group').removeClass('focused');
                             _self.find('.axil-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');

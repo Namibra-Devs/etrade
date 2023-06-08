@@ -60,21 +60,25 @@
                     <div class="axil-signin-form">
                         <h3 class="title">I'm New Here</h3>
                         <p class="b2 mb--55">Enter your detail below</p>
-                        <form class="singin-form">
+                        <form method="POST" action="./handler/user-signup.php" class="singin-form">
                             <div class="form-group">
                                 <label>User Name</label>
-                                <input type="text" class="form-control" name="username" value="anniemario">
+                                <input name="username" type="text" class="form-control" name="username" value="anniemario">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="email" value="annie@example.com">
+                                <input name="email" type="email" class="form-control" name="email" value="annie@example.com">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="password" value="123456789">
+                                <input name="password" type="password" class="form-control" name="password" value="123456789">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="axil-btn btn-bg-primary submit-btn">Create Account</button>
+                                <label>Confirm Password</label>
+                                <input name="confirmpassword" type="password" class="form-control" value="123456789">
+                            </div>
+                            <div class="form-group">
+                                <button name="signup" type="submit" class="axil-btn btn-bg-primary submit-btn">Create Account</button>
                             </div>
                         </form>
                     </div>
