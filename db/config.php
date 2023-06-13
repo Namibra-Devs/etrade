@@ -1,7 +1,7 @@
 <?php
 // Database connection settings
 $host = 'localhost';
-$dbName = 'user_management_application';
+$dbName = 'etrade';
 $username = 'root';
 $password = '';
 ?>

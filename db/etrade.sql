@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 04:33 AM
+-- Generation Time: Jun 13, 2023 at 07:09 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mvogms_db`
+-- Database: `etrade`
 --
 
 -- --------------------------------------------------------
@@ -170,6 +170,27 @@ CREATE TABLE `users` (
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_1`
+--
+
+CREATE TABLE `users_1` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_1`
+--
+
+INSERT INTO `users_1` (`id`, `name`, `email`, `password`, `created_at`) VALUES
+(0, 'anniemario', 'annie@example.com', '$2y$10$A..xczBE66aCbILVDyw3SOdgDtHUEbdEBROYPqJ4fNjSelrNoTsUy', '2023-06-13 05:03:07');
 
 -- --------------------------------------------------------
 
