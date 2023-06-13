@@ -22,7 +22,7 @@ This is an ecommerce web platform for buying and selling of properties between v
 
 ## Installation
 
-1. Clone the repository:
+**1. Clone the repository:**
 
 - git clone - git clone `https://github.com/Namibra-Devs/etrade.git`
 
@@ -34,13 +34,13 @@ This is an ecommerce web platform for buying and selling of properties between v
 - Update the database credentials (hostname, username, password, database name) to match your MySQL server.
 
 
-3. Start the web server:
+**3. Start the web server:**
 
 - You can use tools like XAMPP, WAMP, or run a PHP development server.
 
 - Set the root directory of the web server to the public directory.
 
-4. Access the web platform:
+**4. Access the web platform:**
 
 - Open a web browser and visit `http://localhost/etrade` or the appropriate URL based on your local server configuration.
 
