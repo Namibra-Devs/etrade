@@ -31,10 +31,6 @@
 
 
 <body class="sticky-header">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
-    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
     <!-- Start Header -->
     <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -51,21 +47,11 @@
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     English
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">English</a></li>
-                                    <li><a class="dropdown-item" href="#">Arabic</a></li>
-                                    <li><a class="dropdown-item" href="#">Spanish</a></li>
-                                </ul>
                             </div>
                             <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     USD
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">USD</a></li>
-                                    <li><a class="dropdown-item" href="#">AUD</a></li>
-                                    <li><a class="dropdown-item" href="#">EUR</a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -106,59 +92,14 @@
                             <ul class="mainmenu">
                                 <li class="menu-item-has-children">
                                     <a href="#">Home</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="index-1.php">Home - Electronics</a></li>
-                                        <li><a href="index-2.php">Home - NFT</a></li>
-                                        <li><a href="index-3.php">Home - Fashion</a></li>
-                                        <li><a href="index-4.php">Home - Jewellery</a></li>
-                                        <li><a href="index-5.php">Home - Furniture</a></li>
-                                        <li><a href="index-7.php">Home - Multipurpose</a></li>
-                                        <li><a href="https://new.axilthemes.com/demo/template/etrade-rtl/">RTL Version</a></li>
-                                    </ul>
+
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Shop</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="shop-sidebar.php">Shop With Sidebar</a></li>
-                                        <li><a href="shop.php">Shop no Sidebar</a></li>
-                                        <li><a href="single-product.php">Product Variation 1</a></li>
-                                        <li><a href="single-product-2.php">Product Variation 2</a></li>
-                                        <li><a href="single-product-3.php">Product Variation 3</a></li>
-                                        <li><a href="single-product-4.php">Product Variation 4</a></li>
-                                        <li><a href="single-product-5.php">Product Variation 5</a></li>
-                                        <li><a href="single-product-6.php">Product Variation 6</a></li>
-                                        <li><a href="single-product-7.php">Product Variation 7</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Pages</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="wishlist.php">Wishlist</a></li>
-                                        <li><a href="cart.php">Cart</a></li>
-                                        <li><a href="checkout.php">Checkout</a></li>
-                                        <li><a href="my-account.php">Account</a></li>
-                                        <li><a href="sign-up.php">Sign Up</a></li>
-                                        <li><a href="sign-in.php">Sign In</a></li>
-                                        <li><a href="forgot-password.php">Forgot Password</a></li>
-                                        <li><a href="reset-password.php">Reset Password</a></li>
-                                        <li><a href="privacy-policy.php">Privacy Policy</a></li>
-                                        <li><a href="coming-soon.php">Coming Soon</a></li>
-                                        <li><a href="404.php">404 Error</a></li>
-                                        <li><a href="typography.php">Typography</a></li>
-                                    </ul>
                                 </li>
                                 <li><a href="about-us.php">About</a></li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Blog</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="blog.php">Blog List</a></li>
-                                        <li><a href="blog-grid.php">Blog Grid</a></li>
-                                        <li><a href="blog-details.php">Standard Post</a></li>
-                                        <li><a href="blog-gallery.php">Gallery Post</a></li>
-                                        <li><a href="blog-video.php">Video Post</a></li>
-                                        <li><a href="blog-audio.php">Audio Post</a></li>
-                                        <li><a href="blog-quote.php">Quote Post</a></li>
-                                    </ul>
                                 </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
@@ -224,7 +165,7 @@
             </div>
         </div>
         <!-- End Mainmenu Area -->
-        <div class="header-top-campaign">
+        <!-- <div class="header-top-campaign">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6 col-md-10">
@@ -243,7 +184,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- End Header -->
 
@@ -320,44 +261,8 @@
     </div>
       <!-- Include footer -->
       <?php include "./inc/footer.php"; ?>
-        <!-- Start Copyright Area  -->
-        <div class="copyright-area copyright-default separator-top">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-4">
-                        <div class="social-share">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-discord"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-12">
-                        <div class="copyright-left d-flex flex-wrap justify-content-center">
-                            <ul class="quick-link">
-                                <li>© 2023. All rights reserved by <a target="_blank" href="https://axilthemes.com/">Axilthemes</a>.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-12">
-                        <div class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
-                            <span class="card-text">Accept For</span>
-                            <ul class="payment-icons-bottom quick-link">
-                                <li><img src="assets/images/icons/cart/cart-1.png" alt="paypal cart"></li>
-                                <li><img src="assets/images/icons/cart/cart-2.png" alt="paypal cart"></li>
-                                <li><img src="assets/images/icons/cart/cart-5.png" alt="paypal cart"></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Copyright Area  -->
-    </footer>
-    <!-- End Footer Area  -->
 
-    <!-- Product Quick View Modal Start -->
+      <!-- Product Quick View Modal Start -->
     <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

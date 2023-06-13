@@ -92,6 +92,9 @@
                                 <li class="menu-item-has-children">
                                     <a href="index.php">Home</a>
                                 </li>
+                                <li class="menu-item-has-children">
+                                    <a href="shop.php">Shop</a>
+                                </li>
                                 <li><a href="about-us.php">About</a></li>
                                 <li class="menu-item-has-children">
                                     <a href="blog.php">Blog</a>
