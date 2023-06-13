@@ -25,16 +25,14 @@ This is an ecommerce web platform for buying and selling of properties between v
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/eCommerce-Website.git
-
-- git clone `https://github.com/Namibra-Devs/etrade.git`
+git clone - git clone `https://github.com/Namibra-Devs/etrade.git`
 
 
 2. Configure the database connection:
 
-Open the `config.php` file in the project `db` directory.
+``` Open the `config.php` file in the project `db` directory.
 
-Update the database credentials (hostname, username, password, database name) to match your MySQL server.
+``` Update the database credentials (hostname, username, password, database name) to match your MySQL server.
 
 
 3. Start the web server:
