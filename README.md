@@ -29,9 +29,9 @@ This is an ecommerce web platform for buying and selling of properties between v
 
 2. Configure the database connection:
 
-- Open the config.php file in the project db directory.
+Open the config.php file in the project db directory.
 
-- Update the database credentials (hostname, username, password, database name) to match your MySQL server.
+Update the database credentials (hostname, username, password, database name) to match your MySQL server.
 
 
 3. Start the web server:
