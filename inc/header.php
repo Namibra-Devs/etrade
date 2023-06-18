@@ -325,6 +325,13 @@
                                     <i class="flaticon-shopping-cart"></i>
                                 </a>
                             </li>
+
+                            <!-- color: white;
+    font-size: 16px;
+    font-family: inherit;    padding: 1px 20px;
+    border: 2px solid blue;
+    background: blue;
+    color: transparent; -->
                             <li class="my-account">
                                 <a href="javascript:void(0)">
                                     <i class="flaticon-person"></i>
