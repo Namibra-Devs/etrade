@@ -6,27 +6,9 @@
   <script>
     start_loader()
   </script>
-  <style>
-      body{
-          width:calc(100%);
-          height:calc(100%);
-          background-image:url('<?= validate_image($_settings->info('cover')) ?>');
-          background-repeat: no-repeat;
-          background-size:cover;
-      }
-      #logo-img{
-          width:15em;
-          height:15em;
-          object-fit:scale-down;
-          object-position:center center;
-      }
-      #system_name{
-        color:#fff;
-        text-shadow: 3px 3px 3px #000;
-      }
-  </style>
-  <center><img src="<?= validate_image($_settings->info('logo')) ?>" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
-<h1 class="text-center" id="system_name"><?= $_settings->info('name') ?></h1>
+
+  <center><img width="50px" height="50px" src="<?= validate_image($_settings->info('logo')) ?>" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
+<!-- <h1 class="text-center" id="system_name">ِAdmin Login</h1> -->
   <div class="clear-fix my-2"></div>
 <div class="login-box">
 

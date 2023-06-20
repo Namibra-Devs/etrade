@@ -46,21 +46,11 @@
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     English
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">English</a></li>
-                                    <li><a class="dropdown-item" href="#">Arabic</a></li>
-                                    <li><a class="dropdown-item" href="#">Spanish</a></li>
-                                </ul>
                             </div>
                             <div class="dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     USD
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">USD</a></li>
-                                    <li><a class="dropdown-item" href="#">AUD</a></li>
-                                    <li><a class="dropdown-item" href="#">EUR</a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -100,60 +90,14 @@
                             </div>
                             <ul class="mainmenu">
                                 <li class="menu-item-has-children">
-                                    <a href="#">Home</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="index-1.php">Home - Electronics</a></li>
-                                        <li><a href="index-2.php">Home - NFT</a></li>
-                                        <li><a href="index-3.php">Home - Fashion</a></li>
-                                        <li><a href="index-4.php">Home - Jewellery</a></li>
-                                        <li><a href="index-5.php">Home - Furniture</a></li>
-                                        <li><a href="index-7.php">Home - Multipurpose</a></li>
-                                        <li><a href="https://new.axilthemes.com/demo/template/etrade-rtl/">RTL Version</a></li>
-                                    </ul>
+                                    <a href="index.php">Home</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Shop</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="shop-sidebar.php">Shop With Sidebar</a></li>
-                                        <li><a href="shop.php">Shop no Sidebar</a></li>
-                                        <li><a href="single-product.php">Product Variation 1</a></li>
-                                        <li><a href="single-product-2.php">Product Variation 2</a></li>
-                                        <li><a href="single-product-3.php">Product Variation 3</a></li>
-                                        <li><a href="single-product-4.php">Product Variation 4</a></li>
-                                        <li><a href="single-product-5.php">Product Variation 5</a></li>
-                                        <li><a href="single-product-6.php">Product Variation 6</a></li>
-                                        <li><a href="single-product-7.php">Product Variation 7</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Pages</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="wishlist.php">Wishlist</a></li>
-                                        <li><a href="cart.php">Cart</a></li>
-                                        <li><a href="checkout.php">Checkout</a></li>
-                                        <li><a href="my-account.php">Account</a></li>
-                                        <li><a href="sign-up.php">Sign Up</a></li>
-                                        <li><a href="sign-in.php">Sign In</a></li>
-                                        <li><a href="forgot-password.php">Forgot Password</a></li>
-                                        <li><a href="reset-password.php">Reset Password</a></li>
-                                        <li><a href="privacy-policy.php">Privacy Policy</a></li>
-                                        <li><a href="coming-soon.php">Coming Soon</a></li>
-                                        <li><a href="404.php">404 Error</a></li>
-                                        <li><a href="typography.php">Typography</a></li>
-                                    </ul>
+                                    <a href="shop.php">Shop</a>
                                 </li>
                                 <li><a href="about-us.php">About</a></li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Blog</a>
-                                    <ul class="axil-submenu">
-                                        <li><a href="blog.php">Blog List</a></li>
-                                        <li><a href="blog-grid.php">Blog Grid</a></li>
-                                        <li><a href="blog-details.php">Standard Post</a></li>
-                                        <li><a href="blog-gallery.php">Gallery Post</a></li>
-                                        <li><a href="blog-video.php">Video Post</a></li>
-                                        <li><a href="blog-audio.php">Audio Post</a></li>
-                                        <li><a href="blog-quote.php">Quote Post</a></li>
-                                    </ul>
+                                    <a href="blog.php">Blog</a>
                                 </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
@@ -219,7 +163,7 @@
             </div>
         </div>
         <!-- End Mainmenu Area -->
-        <div class="header-top-campaign">
+        <!-- <div class="header-top-campaign">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6 col-md-10">
@@ -238,7 +182,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- End Header -->
 

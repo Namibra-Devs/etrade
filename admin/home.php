@@ -1,4 +1,4 @@
-<h1 class="">Welcome to <?php echo $_settings->info('name') ?> - Admin Side</h1>
+<h1 class="">Welcome to <?php echo $_settings->info('name') ?> - Admin Dashboard</h1>
 <style>
   #cover-image{
     width:calc(100%);
@@ -120,6 +120,6 @@
 
 <div class="clear-fix mb-2">
     <div class="text-center w-100">
-      <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover image" class="w-100" id="cover-image">
+      <!-- <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover image" class="w-100" id="cover-image"> -->
     </div>
   </div>

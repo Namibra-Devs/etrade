@@ -1,4 +1,5 @@
     <!-- Start Header -->
+
     <header class="header axil-header header-style-2 header-style-6">
         <!-- Start Header Top Area  -->
         <div class="axil-header-top">
@@ -326,12 +327,6 @@
                                 </a>
                             </li>
 
-                            <!-- color: white;
-    font-size: 16px;
-    font-family: inherit;    padding: 1px 20px;
-    border: 2px solid blue;
-    background: blue;
-    color: transparent; -->
                             <li class="my-account">
                                 <a href="javascript:void(0)">
                                     <i class="flaticon-person"></i>
@@ -356,6 +351,10 @@
                                     <div class="reg-footer text-center">No account yet? <a href="sign-up.php" class="btn-link">REGISTER HERE.</a></div>
                                 </div>
                             </li>
+                            <div class="sell-button">
+                                <a href="./vendor/register.php" class="btn btn-primary btn-lg">Sell</a>
+                            </div>
+
                             <li class="axil-mobile-toggle">
                                 <button class="menu-btn mobile-nav-toggler">
                                     <i class="flaticon-menu-2"></i>
