@@ -4101,6 +4101,14 @@ Service
   font-size: 16px;
 }
 
+.sell-button{
+  background: var(--color-primary);
+  padding: 2px 5px;
+  border-radius: 50%;
+  color: white !important;
+  font-size: 16px !important;
+}
+
 /*----------------------------
 Slick Style  
 ------------------------------*/

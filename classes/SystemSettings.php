@@ -178,6 +178,7 @@ class SystemSettings extends DBConnection{
 		}else{
 			return false;
 		}
+		// return $field;
 	}
 	function set_info($field='',$value=''){
 		if(!empty($field) && !empty($value)){

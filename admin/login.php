@@ -7,7 +7,7 @@
     start_loader()
   </script>
 
-  <center><img width="50px" height="50px" src="<?= validate_image($_settings->info('logo')) ?>" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
+  <center><img width="" height="" src="<?= validate_image($_settings->info('title_logo')) ?>" alt="System Logo" class="" id="logo-img"></center>
 <!-- <h1 class="text-center" id="system_name">ِAdmin Login</h1> -->
   <div class="clear-fix my-2"></div>
 <div class="login-box">

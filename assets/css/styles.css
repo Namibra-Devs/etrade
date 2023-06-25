@@ -3968,10 +3968,6 @@ a.axil-btn.btn-size-md i,button.axil-btn.btn-size-md i {
     font-size: 16px
 }
 
-.sell-button:hover{
-    background: white !important; 
-    color: black !important;
-}
 
 .slick-layout-wrapper--20 .slick-list {
     margin: -20px
@@ -4519,6 +4515,14 @@ a.axil-btn.btn-size-md i,button.axil-btn.btn-size-md i {
     margin-bottom: 50px;
     font-size: 60px;
     line-height: 1.2
+}
+
+.sell-button{
+    background: var(--color-primary);
+    padding: 2px 7px;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px
 }
 
 @media only screen and (max-width: 1199px) {

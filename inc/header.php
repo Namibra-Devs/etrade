@@ -351,9 +351,13 @@
                                     <div class="reg-footer text-center">No account yet? <a href="sign-up.php" class="btn-link">REGISTER HERE.</a></div>
                                 </div>
                             </li>
-                            <div class="sell-button">
-                                <a href="./vendor/register.php" class="btn btn-primary btn-lg">Sell</a>
-                            </div>
+                            <li class="my-account-dropdown">
+                            <!-- <li class="sell-button neck"> -->
+                                <a href="./vendor/register.php" class="sell-button">Sell</a>
+                                <!-- <a href="./vendor/register.php" class="btn btn-primary btn-lg">Sell</a> -->
+                             </li>
+
+                        
 
                             <li class="axil-mobile-toggle">
                                 <button class="menu-btn mobile-nav-toggler">
