@@ -67,6 +67,6 @@
 
 <div class="clear-fix mb-2">
     <div class="text-center w-100">
-      <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover image" class="w-100" id="cover-image">
+      <!-- <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover image" class="w-100" id="cover-image"> -->
     </div>
   </div>

@@ -96,9 +96,6 @@
                                     <a href="shop.php">Shop</a>
                                 </li>
                                 <li><a href="about-us.php">About</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Blog</a>
-                                </li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
                         </nav>

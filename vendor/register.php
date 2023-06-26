@@ -55,6 +55,7 @@
     <div class="registration-form">
         <h1>Create a Seller Account</h1>
         <form id="vregister-frm" action="" method="post">
+        <input type="hidden" name="id">
             <!-- Form fields -->
             <div class="form-group">
                 <label for="shop_name">Shop Name</label>
@@ -84,6 +85,28 @@
                                 <label for="username" class="control-label">Username</label>
                                 <input type="text" id="username" name="username" class="form-control" required>
                             </div>
+                            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                <input type="password" id="password" name="password" class="form-control" required>
+                    <div class="input-group-append">
+                    <span class="input-group-text">
+                        <a href="javascript:void(0)" class="text-reset text-decoration-none pass_view"> <i class="fa fa-eye-slash"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cpassword">Confirm Password</label>
+                <div class="input-group">
+                <input type="password" id="cpassword" class="form-control" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                        <a href="javascript:void(0)" class="text-reset text-decoration-none pass_view"> <i class="fa fa-eye-slash"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="logo" class="control-label">Shop Logo</label>
                 <div class="custom-file">
@@ -96,32 +119,11 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <div class="input-group">
-                    <input type="password" id="password" class="form-control" required>
-                    <div class="input-group-append">
-                    <span class="input-group-text">
-                        <a href="javascript:void(0)" class="text-reset text-decoration-none pass_view"> <i class="fa fa-eye-slash"></i></a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="cpassword">Confirm Password</label>
-                <div class="input-group">
-                    <input type="password" id="cpassword" class="form-control" required>
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                        <a href="javascript:void(0)" class="text-reset text-decoration-none pass_view"> <i class="fa fa-eye-slash"></i></a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            </div> -->
+
             <!-- End of form fields -->
 
             <div class="form-group">
@@ -197,7 +199,6 @@
             return false;
         }
         start_loader();
-        console.log(_base_url_+"classes/Users.php?f=save_vendor");
         $.ajax({
             url:_base_url_+"classes/Users.php?f=save_vendor",
             data: new FormData($(this)[0]),
@@ -208,14 +209,13 @@
             type: 'POST',
             dataType: 'json',
             error:err=>{
-                console.error(err)
+                console.error(err);
                 el.addClass('alert-danger').text("An error occured");
                 _this.prepend(el)
                 el.show('.modal')
                 end_loader();
             },
             success:function(resp){
-                alert("success!");
                 if(typeof resp =='object' && resp.status == 'success'){
                     location.href= './login.php';
                 }else if(resp.status == 'failed' && !!resp.msg){
@@ -224,7 +224,7 @@
                     el.show('.modal')
                 }else{
                     el.text("An error occured");
-                    console.error(resp);
+                    console.error(resp)
                 }
                 $("html, body").scrollTop(0);
                 end_loader()
