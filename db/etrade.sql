@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 07:09 AM
+-- Generation Time: Jun 26, 2023 at 02:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -155,6 +155,30 @@ INSERT INTO `shop_type_list` (`id`, `name`, `status`, `delete_flag`, `date_creat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `system_info`
+--
+
+CREATE TABLE `system_info` (
+  `id` int(30) NOT NULL,
+  `meta_field` text NOT NULL,
+  `meta_value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `system_info`
+--
+
+INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
+(1, 'name', 'eTrade'),
+(6, 'short_name', 'eTrade'),
+(11, 'logo', 'uploads/favicon.png'),
+(13, 'user_avatar', 'uploads/user_avatar.jpg'),
+(14, 'cover', 'uploads/cover-1644367404.png'),
+(15, 'title_logo', 'uploads/logo.png');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -170,6 +194,13 @@ CREATE TABLE `users` (
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
+(12, 'Balogun', 'Abdulsamad', 'Admin1', '', 'uploads/avatar-12.png?v=1687280010', NULL, 0, '2023-06-20 17:53:28', '2023-06-20 17:53:30');
 
 -- --------------------------------------------------------
 
@@ -213,6 +244,14 @@ CREATE TABLE `vendor_list` (
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `vendor_list`
+--
+
+INSERT INTO `vendor_list` (`id`, `code`, `shop_type_id`, `shop_name`, `shop_owner`, `contact`, `username`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
+(7, '202306-00001', 1, 'Ahop1', 'Balogun Abdullah', '08117084647', 'mustapha23', '343b1c4a3ea721b2d640fc8700db0f36', 'uploads/vendors/7.png?v=1687737819', 1, 0, '2023-06-26 01:03:39', '2023-06-26 01:03:39'),
+(8, '202306-00002', 1, 'Ahop1', 'Balogun Abdullah', '08117084647', 'abdulsamadbalogun23@gmail.com', '4bbde07660e5eff90873642cfae9a8dd', 'uploads/vendors/8.png?v=1687739283', 1, 0, '2023-06-26 01:28:03', '2023-06-26 01:28:03');
 
 --
 -- Indexes for dumped tables
@@ -269,6 +308,12 @@ ALTER TABLE `shop_type_list`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `system_info`
+--
+ALTER TABLE `system_info`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -322,16 +367,22 @@ ALTER TABLE `shop_type_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `system_info`
+--
+ALTER TABLE `system_info`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `vendor_list`
 --
 ALTER TABLE `vendor_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

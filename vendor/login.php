@@ -101,7 +101,7 @@
               },
               success:function(resp){
                   if(typeof resp =='object' && resp.status == 'success'){
-                      location.href= './login.php';
+                      location.href= './home.php';
                   }else if(resp.status == 'failed' && !!resp.msg){
                       el.addClass('alert-danger').text(resp.msg);
                       _this.prepend(el)

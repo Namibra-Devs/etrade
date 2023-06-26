@@ -73,6 +73,8 @@ class Login extends DBConnection {
 			$resp['error'] = $this->conn->error;
 			$resp['res'] = $result;
 		}
+	
+		// $resp['status'] = 'success';
 		return json_encode($resp);
 	}
 	public function logout_vendor(){

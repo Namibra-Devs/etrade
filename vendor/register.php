@@ -80,6 +80,10 @@
                                     <?php endwhile; ?>
                                 </select>
                             </div>
+                                       <div class="form-group">
+                                <label for="username" class="control-label">Username</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
             <div class="form-group">
                 <label for="logo" class="control-label">Shop Logo</label>
                 <div class="custom-file">
@@ -193,6 +197,7 @@
             return false;
         }
         start_loader();
+        console.log(_base_url_+"classes/Users.php?f=save_vendor");
         $.ajax({
             url:_base_url_+"classes/Users.php?f=save_vendor",
             data: new FormData($(this)[0]),
@@ -210,6 +215,7 @@
                 end_loader();
             },
             success:function(resp){
+                alert("success!");
                 if(typeof resp =='object' && resp.status == 'success'){
                     location.href= './login.php';
                 }else if(resp.status == 'failed' && !!resp.msg){
@@ -218,7 +224,7 @@
                     el.show('.modal')
                 }else{
                     el.text("An error occured");
-                    console.error(resp)
+                    console.error(resp);
                 }
                 $("html, body").scrollTop(0);
                 end_loader()
