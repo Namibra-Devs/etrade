@@ -1,11 +1,11 @@
-<?php ?>
+<?php require_once('./config.php'); ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTrade || Sign Up</title>
+    <title>eTrade || Sign In</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,11 +26,25 @@
     <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/vendor/base.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <?php require_once "inc/header_1.php"; ?>
+
+    <style>
+    
+    </style>
 
 </head>
 
 
-<body>
+<body class="hold-transition login-page">
+<script>
+    start_loader()
+  </script>
+
+<?php if($_settings->chk_flashdata('success')): ?>
+      <script>
+        alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+      </script>
+    <?php endif;?>
     <div class="axil-signin-area">
 
         <!-- Start Header -->
@@ -60,7 +74,7 @@
                     <div class="axil-signin-form">
                         <h3 class="title">Sign in to eTrade.</h3>
                         <p class="b2 mb--55">Enter your detail below</p>
-                        <form method="POST" action="./handler/user-signin.php" class="singin-form">
+                        <form method="post" id="cclogin-frm" class="singin-form">
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="email" value="annie@example.com">
@@ -101,6 +115,64 @@
     <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
     <script src="assets/js/vendor/counterup.js"></script>
     <script src="assets/js/vendor/waypoints.min.js"></script>
+
+    <!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+    <script>
+  $(function(){
+    end_loader();
+    $('#cclogin-frm').submit(function(e){
+        e.preventDefault();
+        var _this = $(this)
+            $('.err-msg').remove();
+        var el = $('<div>')
+            el.addClass("alert err-msg")
+            el.hide()
+        if(_this[0].checkValidity() == false){
+            _this[0].reportValidity();
+            return false;
+            }
+        start_loader();
+        $.ajax({
+            url:_base_url_+"classes/Login.php?f=login_client",
+            data: new FormData($(this)[0]),
+            cache: false,
+            contentType: false,
+            processData: false,
+            method: 'POST',
+            type: 'POST',
+            dataType: 'json',
+            error:err=>{
+                console.error(err)
+                el.addClass('alert-danger').text("An error occured");
+                _this.prepend(el)
+                el.show('.modal')
+                end_loader();
+            },
+            success:function(resp){
+                if(typeof resp =='object' && resp.status == 'success'){
+                    location.href= './';
+                }else if(resp.status == 'failed' && !!resp.msg){
+                    el.addClass('alert-danger').text(resp.msg);
+                    _this.prepend(el)
+                    el.show('.modal')
+                }else{
+                    el.text("An error occured");
+                    console.error(resp)
+                }
+                $("html, body").scrollTop(0);
+                end_loader()
+
+            }
+        })
+    })
+  })
+</script>
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>

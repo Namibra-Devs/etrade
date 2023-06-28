@@ -12261,6 +12261,10 @@ body.open .closeMask {
     justify-content: flex-end
 }
 
+.alert-danger{
+    margin-bottom: 2rem !important;
+}
+
 .quick-view-product .modal-header .btn-close {
     width: auto;
     background-image: none;

@@ -138,16 +138,17 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                             <div class="col-lg-5 mb--40">
                                 <div class="single-product-content">
                                     <div class="inner">
-                                        <div class="product-rating">
-                                            <div class="star-rating">
+                                        <!-- <div class="product-rating"> -->
+                                            <!-- <div class="star-rating">
                                                 <img src="assets/images/icons/rate.png" alt="Rate Images">
-                                            </div>
+                                            </div> -->
                                             <!-- <div class="review-link">
                                                 <a href="#">(<span>1</span> customer reviews)</a>
                                             </div> -->
+                                            <h3 class="product-title"><?= $name ?></h3>
+                                        <span class="price-amount">$<?= format_num($price) ?></span>
                                         </div>
-                                        <h3 class="product-title"><?= $name ?></h3>
-                                        <span class="price-amount"><?= format_num($price) ?></span>
+ 
                                         <!-- <ul class="product-meta">
                                             <li><i class="fal fa-check"></i>In stock</li>
                                             <li><i class="fal fa-check"></i>Free delivery available</li>
@@ -196,8 +197,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 
                                             <!-- Start Product Action  -->
                                             <ul class="product-action d-flex-center mb--0">
-                                                <li class="add-to-cart"><a href="cart.php" class="axil-btn btn-bg-primary">Add to Cart</a></li>
-                                                <li class="wishlist"><a href="wishlist.php" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
+                                                <li class="add-to-cart"><a class="axil-btn btn-bg-primary" id="add_to_cart">Add to Cart</a></li>
+                                                <!-- <li class="wishlist"><a href="wishlist.php" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li> -->
                                             </ul>
                                             <!-- End Product Action  -->
 
@@ -211,7 +212,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </div>
 
 <script>
-    function add_to_cart(){
+
+// Add to cart functionality
+function add_to_cart(){
         var pid = '<?= isset($id) ? $id : '' ?>';
         var qty = $('#qty').val();
         var el = $('<div>')
@@ -252,8 +255,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             if('<?= $_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3 ?>'){
                 add_to_cart();
             }else{
-                location.href = "./login.php"
+                location.href = "./sign-in.php"
             }
         })
     })
 </script>
+<script src="assets/js/main.js"></script>

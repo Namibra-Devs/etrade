@@ -47,7 +47,7 @@ class Login extends DBConnection {
 	public function login_vendor(){
 		extract($_POST);
 		$password = md5($password);
-		$stmt = $this->conn->prepare("SELECT * from vendor_list where username = ? and `password` =? and delete_flag = ?  ");
+		$stmt = $this->conn->prepare("SELECT * from vendor_list where email = ? and `password` =? and delete_flag = ?  ");
 		$delete_flag = 0;
 		$stmt->bind_param("ssi",$username,$password,$delete_flag);
 		$stmt->execute();
@@ -107,7 +107,7 @@ class Login extends DBConnection {
 			}
 		}else{
 			$resp['status'] = 'failed';
-			$resp['msg'] = ' Incorrect Username or Password.';
+			$resp['msg'] = ' Incorrect Username or Password!';
 			$resp['error'] = $this->conn->error;
 			$resp['res'] = $result;
 		}

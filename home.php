@@ -266,11 +266,11 @@
                                             <ul class="cart-action">
               
                                                 <li class="select-option">
-                                                    <a href="single-product.php">
+                                                    <a id="add_to_cart">
                                                         Add to Cart
                                                     </a>
                                                 </li>
-                                                <li class="quickview"><a href="./?page=products/view_product&id=<?= $row['id'] ?>" data-bs-toggle="modal" data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
+                                                <li class="quickview"><a onclick="openQuickViewModal(<?= $row['id'] ?>)" data-bs-target="#quick-view-modal"><i class="far fa-eye"></i></a></li>
                                                 <!-- <li class="wishlist"><a href="wishlist.php"><i class="far fa-heart"></i></a></li> -->
                                             </ul>
                                         </div>
@@ -514,7 +514,7 @@
 
                                             <!-- Start Product Action  -->
                                             <ul class="product-action d-flex-center mb--0">
-                                                <li class="add-to-cart"><a href="cart.php" class="axil-btn btn-bg-primary">Add to Cart</a></li>
+                                                <li class="add-to-cart"><a id="add_to_cart" class="axil-btn btn-bg-primary">Add to Cart</a></li>
                                                 <li class="wishlist"><a href="wishlist.php" class="axil-btn wishlist-btn"><i class="far fa-heart"></i></a></li>
                                             </ul>
                                             <!-- End Product Action  -->
@@ -728,13 +728,11 @@
     <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
     <script src="assets/js/vendor/counterup.js"></script>
     <script src="assets/js/vendor/waypoints.min.js"></script>
-
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    
     <script>
         const _base_url_ = window.location.href.substr(0, window.location.href.lastIndexOf('/'));
         console.log(_base_url_);
-        (function openQuickViewModal(productId) {
+        function openQuickViewModal(productId) {
     $.ajax({
         url: _base_url_+'./?page=products/view_product&id=9',
         type: 'POST',
@@ -748,8 +746,59 @@
             console.log(error);
         }
     });
-});
+};
 </script>
+<script>
+    function add_to_cart(){
+        var pid = '<?= isset($id) ? $id : '' ?>';
+        var qty = $('#qty').val();
+        var el = $('<div>')
+        el.addClass('alert alert-danger')
+        el.hide()
+        $('#msg').html('')
+        start_loader()
+        $.ajax({
+            url:_base_url_+'classes/Master.php?f=add_to_cart',
+            method:'POST',
+            data:{product_id:pid,quantity:qty},
+            dataType:'json',
+            error:err=>{
+                console.error(err)
+                alert_toast('An error occurred.','error')
+                end_loader()
+            },
+            success:function(resp){
+                if(resp.status =='success'){
+                    location.reload()
+                }else if(!!resp.msg){
+                    el.text(resp.msg)
+                    $('#msg').append(el)
+                    el.show('slow')
+                    $('html, body').scrollTop(0)
+                }else{
+                    el.text("An error occurred. Please try to refresh this page.")
+                    $('#msg').append(el)
+                    el.show('slow')
+                    $('html, body').scrollTop(0)
+                }
+                end_loader()
+            }
+        })
+    }
+    $(function(){
+        $('#add_to_cart').click(function(){
+            if('<?= $_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 3 ?>'){
+                add_to_cart();
+            }else{
+                location.href = "./sign-in.php"
+            }
+        })
+    })
+</script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
