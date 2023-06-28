@@ -28,11 +28,56 @@
     <link rel="stylesheet" href="assets/css/style.min.css">
 
     <?php 
-    require_once "inc/header_1.php"; 
+    // require_once "inc/header_1.php"; 
     ?>
 
     
-    
+  <style>
+
+.alert-danger{
+    margin-bottom: 2rem !important;
+}
+      select.form-control-lg {
+    height: 50px;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    border-width: 1px;
+}
+
+select.form-control-lg:focus {
+    border: 1px solid var(--color-primary);
+
+
+
+    outline: none;
+    box-shadow: none;
+}
+
+.image-preview-container {
+  position: relative;
+}
+
+.image-preview-container .custom-file-input {
+  padding-right: 60px; 
+}
+
+.image-preview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+  /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); */
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  </style>  
 
 </head>
 
@@ -171,6 +216,17 @@
 <!-- <script src="<?php echo base_url ?>dist/js/adminlte.min.js"></script> -->
 <!-- Select2 -->
 <script src="<?php echo base_url ?>plugins/select2/js/select2.full.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?php echo base_url ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="<?php echo base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="<?php echo base_url ?>plugins/toastr/toastr.min.js"></script>
+    <script>
+        var _base_url_ = '<?php echo base_url ?>';
+    </script>
+    <script src="<?php echo base_url ?>dist/js/script.js"></script>
+
 
 <script>
     function displayImg(input,_this) {
