@@ -223,8 +223,10 @@
             $('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
             $('.pro-qty').append('<span class="inc qtybtn">+</span>');
             $('.qtybtn').on('click', function() {
+                console.log(7777);
                 var $button = $(this);
                 var oldValue = $button.parent().find('input').val();
+                console.log(oldValue);
                 if ($button.hasClass('inc')) {
                     var newVal = parseFloat(oldValue) + 1;
                 } else {

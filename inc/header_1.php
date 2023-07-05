@@ -1,3 +1,8 @@
+
+<?php
+  // require_once('sess_auth.php');
+  
+?>
 <style>
     :root{
       --bg-img:url('<?php echo validate_image($_settings->info('cover')) ?>');

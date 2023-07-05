@@ -114,6 +114,7 @@ select.form-control-lg:focus {
                         <h3 class="title">I'm New Here</h3>
                         <p class="b2 mb--55">Enter your detail below</p>
                         <form method="post" id="cregister-frm" class="singin-form">
+                        <input type="hidden" name="id">
                         <div class="form-group">
                     <label>First Name</label>
                     <input name="firstname" type="text" class="form-control" value="Annie">
@@ -157,16 +158,13 @@ select.form-control-lg:focus {
                 <div class="form-group">
                     <label>Upload Image</label>
                     <div class="custom-file">
-                        <input style="padding-top: 15px;" type="file" class="custom-file-input" id="customFile" name="image" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
-                        <!-- <label class="custom-file-label" for="customFile">Choose file</label> -->
+                        <input style="padding-top: 15px;" type="file" class="custom-file-input" id="customFile" name="img" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
                         <div class="image-preview">
                         <img id="cimg"  src="<?= validate_image('') ?>" alt="Image Preview">
                     </div>
                         
                     </div>
                 </div>
-                
-                            
                             <div class="form-group">
                                 <button name="signup" type="submit" class="axil-btn btn-bg-primary submit-btn">Create Account</button>
                             </div>
@@ -299,14 +297,14 @@ select.form-control-lg:focus {
             },
             success:function(resp){
                 if(typeof resp =='object' && resp.status == 'success'){
-                    location.href= './login.php';
+                    location.href= './sign-in.php';
                 }else if(resp.status == 'failed' && !!resp.msg){
                     el.addClass('alert-danger').text(resp.msg);
                     _this.prepend(el)
                     el.show('.modal')
                 }else{
                     el.text("An error occured");
-                    console.error(resp)
+                    console.error({resp})
                 }
                 $("html, body").scrollTop(0);
                 end_loader()

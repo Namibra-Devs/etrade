@@ -1,4 +1,4 @@
-<?php ?>
+<?php require_once('./config.php'); ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -35,8 +35,8 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
     <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
-       <!-- Start Header -->
-       <header class="header axil-header header-style-5">
+    <!-- Start Header -->
+    <header class="header axil-header header-style-5">
         <div class="axil-header-top">
             <div class="container">
                 <div class="row align-items-center">
@@ -202,11 +202,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-4">
-                        <div class="inner">
+                        <!-- <div class="inner">
                   sign-in          <div class="bradcrumb-thumb">
                                 <img src="assets/images/product/product-45.png" alt="Image">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -220,11 +220,10 @@
                     <div class="axil-dashboard-author">
                         <div class="media">
                             <div class="thumbnail">
-                                <img src="./assets/images/product/author1.png" alt="Hello Annie">
+                                <img style="max-height: 100px; max-width: 100px;" src="<?= validate_image($_settings->userdata('avatar')) ?>" alt="Hello, <?= !empty($_settings->userdata('lastname')) ? $_settings->userdata('lastname') : $_settings->userdata('email') ?>">
                             </div>
                             <div class="media-body">
-                                <h5 class="title mb-0">Hello Annie</h5>
-                                <span class="joining-date">eTrade Member Since Sep 2020</span>
+                                <h5 class="title mb-0">Hello, <?= !empty($_settings->userdata('lastname')) ? $_settings->userdata('lastname') : $_settings->userdata('email') ?></h5>
                             </div>
                         </div>
                     </div>
@@ -247,7 +246,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="nav-dashboard" role="tabpanel">
                                     <div class="axil-dashboard-overview">
-                                        <div class="welcome-text">Hello Annie (not <span>Annie?</span> <a href="./handler/user-logout.php">Log Out</a>)</div>
+                                        <div class="welcome-text">Hello, <?= !empty($_settings->userdata('lastname')) ? $_settings->userdata('lastname') : $_settings->userdata('email') ?> (not <span><?= !empty($_settings->userdata('lastname')) ? $_settings->userdata('lastname') : $_settings->userdata('email') ?> ?</span> <a href="<?= base_url . 'classes/Login.php?f=logout_client' ?>">Log Out</a>)</div>
                                         <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
                                     </div>
                                 </div>
@@ -325,7 +324,7 @@
                                                         <li>Email: annie@example.com</li>
                                                         <li>Phone: 1234 567890</li>
                                                         <li class="mt--30">7398 Smoke Ranch Road <br>
-                                                        Las Vegas, Nevada 89128</li>
+                                                            Las Vegas, Nevada 89128</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -340,7 +339,7 @@
                                                         <li>Email: annie@example.com</li>
                                                         <li>Phone: 1234 567890</li>
                                                         <li class="mt--30">7398 Smoke Ranch Road <br>
-                                                        Las Vegas, Nevada 89128</li>
+                                                            Las Vegas, Nevada 89128</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -652,12 +651,12 @@
                         <div class="product-content">
                             <div class="product-rating">
                                 <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                </span>
                                 <span class="rating-number"><span>100+</span> Reviews</span>
                             </div>
                             <h6 class="product-title"><a href="single-product.php">Media Remote</a></h6>
@@ -680,12 +679,12 @@
                         <div class="product-content">
                             <div class="product-rating">
                                 <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                </span>
                                 <span class="rating-number"><span>100+</span> Reviews</span>
                             </div>
                             <h6 class="product-title"><a href="single-product.php">Media Remote</a></h6>
@@ -723,12 +722,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(64)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product-3.php">Wireless PS Handler</a></h3>
@@ -746,12 +745,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(4)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product-2.php">Gradient Light Keyboard</a></h3>
@@ -769,12 +768,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(6)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product.php">HD CC Camera</a></h3>

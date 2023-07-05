@@ -241,7 +241,7 @@ Class Master extends DBConnection {
 			$resp['error'] = $this->conn->error. "[{$sql}]";
 		}
 		if($resp['status'] == 'success')
-		$this->settings->set_flashdata('success',$resp['msg']);
+		if ($this->settings->set_flashdata('success',$resp['msg']))
 		return json_encode($resp);
 	}
 	function update_cart_qty(){

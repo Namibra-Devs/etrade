@@ -12261,6 +12261,15 @@ body.open .closeMask {
     justify-content: flex-end
 }
 
+
+element.style {
+    background: blue;
+}
+a.axil-btn.btn-bg-lighter.btn-load-more:hover {
+    background: var(--color-primary) !important;
+    color:white;
+}
+
 .alert-danger{
     margin-bottom: 2rem !important;
 }

@@ -1,4 +1,4 @@
-<?php ?>
+<?php require_once('./config.php'); ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/vendor/base.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
+
+    <?php require_once("inc/header_1.php")  ?>
 
 </head>
 
@@ -206,20 +208,32 @@
                                     <th scope="col" class="product-subtotal">Subtotal</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="product-remove"><a href="#" class="remove-wishlist"><i class="fal fa-times"></i></a></td>
-                                    <td class="product-thumbnail"><a href="single-product.php"><img src="./assets/images/product/electric/product-01.png" alt="Digital Product"></a></td>
-                                    <td class="product-title"><a href="single-product.php">Wireless PS Handler</a></td>
-                                    <td class="product-price" data-title="Price"><span class="currency-symbol">$</span>124.00</td>
-                                    <td class="product-quantity" data-title="Qty">
-                                        <div class="pro-qty">
-                                            <input type="number" class="quantity-input" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span>275.00</td>
-                                </tr>
-                                <tr>
+                            <tbody id="cart-items">
+                                <?php
+                                $gtotal = 0;
+                                $vtotal = 0;
+                                $products = $conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' order by p.name asc");
+                                while ($prow = $products->fetch_assoc()) :
+                                    $total = $prow['price'] * $prow['quantity'];
+                                    $gtotal += $total;
+                                    $vtotal += $total;
+                                ?>
+                                    <tr id="cart-list">
+                                        <td class="product-remove"><a class="remove-wishlist" data-id="<?= $prow['id'] ?>"><i class="fal fa-times"></i></a></td>
+                                        <td class="product-thumbnail"><a href="single-product.php"><img src="<?= validate_image($prow['image_path']) ?>" alt="Digital Product"></a></td>
+                                        <td class="product-title"><a href="single-product.php"><?= $prow['name'] ?></a></td>
+                                        <td class="product-price" data-title="Price"><span class="currency-symbol">$</span><?= format_num($prow['price']) ?></td>
+                                        <td class="product-quantity" data-title="Qty">
+                                            <div class="input-group pro-qty">
+                                                <input type="number" class="quantity-input" value="<?= $prow['quantity'] ?>">
+                                                <!-- <?= $prow['quantity'] ?> -->
+                                            </div>
+                                            <input type="hidden" id="cart_id" name="cart_id" value="<?= $prow['id'] ?>">
+                                        </td>
+                                        <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span><?= format_num($vtotal) ?></td>
+                                    </tr>
+                                <?php endwhile; ?>
+                                <!-- <tr>
                                     <td class="product-remove"><a href="#" class="remove-wishlist"><i class="fal fa-times"></i></a></td>
                                     <td class="product-thumbnail"><a href="single-product-2.php"><img src="./assets/images/product/electric/product-02.png" alt="Digital Product"></a></td>
                                     <td class="product-title"><a href="single-product-2.php">Gradient Light Keyboard</a></td>
@@ -242,7 +256,7 @@
                                         </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Subtotal"><span class="currency-symbol">$</span>275.00</td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -254,7 +268,7 @@
                             </div>
                         </div>
                         <div class="update-btn">
-                            <a href="#" class="axil-btn btn-outline">Update Cart</a>
+                            <a id="update_cart" class="axil-btn btn-outline">Update Cart</a>
                         </div>
                     </div>
                     <div class="row">
@@ -266,7 +280,7 @@
                                         <tbody>
                                             <tr class="order-subtotal">
                                                 <td>Subtotal</td>
-                                                <td>$117.00</td>
+                                                <td>$<?= format_num($vtotal) ?></td>
                                             </tr>
                                             <tr class="order-shipping">
                                                 <td>Shipping</td>
@@ -291,7 +305,7 @@
                                             </tr>
                                             <tr class="order-total">
                                                 <td>Total</td>
-                                                <td class="order-total-amount">$125.00</td>
+                                                <td class="order-total-amount">$<?= format_num($vtotal) ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -531,12 +545,12 @@
                         <div class="product-content">
                             <div class="product-rating">
                                 <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                </span>
                                 <span class="rating-number"><span>100+</span> Reviews</span>
                             </div>
                             <h6 class="product-title"><a href="single-product.php">Media Remote</a></h6>
@@ -559,12 +573,12 @@
                         <div class="product-content">
                             <div class="product-rating">
                                 <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                </span>
                                 <span class="rating-number"><span>100+</span> Reviews</span>
                             </div>
                             <h6 class="product-title"><a href="single-product.php">Media Remote</a></h6>
@@ -602,12 +616,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(64)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product-3.php">Wireless PS Handler</a></h3>
@@ -625,12 +639,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(4)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product-2.php">Gradient Light Keyboard</a></h3>
@@ -648,12 +662,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(6)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product.php">HD CC Camera</a></h3>
@@ -702,6 +716,97 @@
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        // var body = $("#cart-items tr");
+        // console.log(body);
+        // body.map(element => {
+        //     console.log($(element).find(".input-group").val());
+        // });
+        $(function() {
+            $('#update_cart').click(function() {
+                $('tr#cart-list').each(function() {
+                    var cart_id = $(this).find('#cart_id').val();
+                    var qty = $(this).find('.quantity-input').val();
+                    console.log("Update Cart button pressed!");
+                    console.log(cart_id, qty);
+
+                    var el = $('<div>')
+                    el.addClass('alert alert-danger')
+                    el.hide()
+                    start_loader()
+                    $.ajax({
+                        url: _base_url_ + 'classes/Master.php?f=update_cart_qty',
+                        method: 'POST',
+                        data: {
+                            cart_id: cart_id,
+                            quantity: qty
+                        },
+                        dataType: 'json',
+                        error: err => {
+                            console.error(err)
+                            alert_toast('An error occurred.', 'error')
+                            end_loader()
+                        },
+                        success: function(resp) {
+                            if (resp.status == 'success') {
+                                // Handle success response
+                                // location.reload()
+                            } else if (!!resp.msg) {
+                                el.text(resp.msg)
+                                $('#msg').append(el)
+                                el.show('slow')
+                                $('html, body').scrollTop(0)
+                            } else {
+                                el.text("An error occurred. Please try refreshing this page.")
+                                $('#msg').append(el)
+                                el.show('slow')
+                                $('html, body').scrollTop(0)
+                            }
+                            end_loader()
+                        }
+                    })
+                })
+                // location.reload()
+                try {
+                    alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+                } catch (err) {
+                    console.log(er);
+                    return
+                }
+            })
+
+            $('.rem_item').click(function() {
+                _conf("Are you sure you want to delete this item from the cart list?", 'delete_cart', [$(this).attr('data-id')])
+            })
+        })
+
+
+        function delete_cart($id) {
+            start_loader();
+            $.ajax({
+                url: _base_url_ + "classes/Master.php?f=delete_cart",
+                method: "POST",
+                data: {
+                    id: $id
+                },
+                dataType: "json",
+                error: err => {
+                    console.log(err)
+                    alert_toast("An error occured.", 'error');
+                    end_loader();
+                },
+                success: function(resp) {
+                    if (typeof resp == 'object' && resp.status == 'success') {
+                        location.reload();
+                    } else {
+                        alert_toast("An error occured.", 'error');
+                        end_loader();
+                    }
+                }
+            })
+        }
+    </script>
 
 </body>
 
