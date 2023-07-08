@@ -37,27 +37,27 @@
                         <td class="px-2 py-1 align-middle text-right"><?= format_num($row['total_amount']) ?></td>
                         <td class="px-2 py-1 align-middle text-center">
                             <?php 
-                                switch($row['status']){
+                                   switch($row['status']){
                                     case 0:
-                                        echo '<span class="badge badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
+                                        echo '<span class="badge btn btn-info badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
                                         break;
                                     case 1:
-                                        echo '<span class="badge badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
+                                        echo '<span class="badge btn btn-primary badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
                                         break;
                                     case 2:
-                                        echo '<span class="badge badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
+                                        echo '<span class="badge btn btn-info badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
                                         break;
                                     case 3:
-                                        echo '<span class="badge badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
+                                        echo '<span class="badge btn btn-warning badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
                                         break;
                                     case 4:
-                                        echo '<span class="badge badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
+                                        echo '<span class="badge btn btn-success badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
                                         break;
                                     case 5:
-                                        echo '<span class="badge badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
+                                        echo '<span class="badge btn btn-danger badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
                                         break;
                                     default:
-                                        echo '<span class="badge badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
+                                        echo '<span class="badge btn btn-light badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
                                         break;
                                 }
                             ?>

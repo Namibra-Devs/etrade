@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="assets/css/vendor/base.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 
+    <?php
+    require_once "inc/header_1.php"; 
+    ?>
+
 </head>
 
 
@@ -234,10 +238,10 @@
                                     <div class="nav nav-tabs" role="tablist">
                                         <a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav-dashboard" role="tab" aria-selected="true"><i class="fas fa-th-large"></i>Dashboard</a>
                                         <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-orders" role="tab" aria-selected="false"><i class="fas fa-shopping-basket"></i>Orders</a>
-                                        <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-downloads" role="tab" aria-selected="false"><i class="fas fa-file-download"></i>Downloads</a>
-                                        <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-address" role="tab" aria-selected="false"><i class="fas fa-home"></i>Addresses</a>
+                                        <!-- <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-downloads" role="tab" aria-selected="false"><i class="fas fa-file-download"></i>Downloads</a> -->
+                                        <!-- <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-address" role="tab" aria-selected="false"><i class="fas fa-home"></i>Addresses</a> -->
                                         <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-account" role="tab" aria-selected="false"><i class="fas fa-user"></i>Account Details</a>
-                                        <a class="nav-item nav-link" href="./handler/user-logout.php"><i class="fal fa-sign-out"></i>Logout</a>
+                                        <a class="nav-item nav-link" href="<?= base_url . 'classes/Login.php?f=logout_client' ?>""><i class="fal fa-sign-out"></i>Logout</a>
                                     </div>
                                 </nav>
                             </aside>
@@ -264,19 +268,51 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php 
+                    $i = 1;
+                    $orders = $conn->query("SELECT * FROM `order_list` where client_id = '{$_settings->userdata('id')}' order by `status` asc,unix_timestamp(date_created) desc ");
+                    while($row = $orders->fetch_assoc()):
+                    ?>
                                                     <tr>
-                                                        <th scope="row">#6523</th>
-                                                        <td>September 10, 2020</td>
-                                                        <td>Processing</td>
-                                                        <td>$326.63 for 3 items</td>
-                                                        <td><a href="#" class="axil-btn view-btn">View</a></td>
+                                                        <th scope="row">#<?= $row['code'] ?></th>
+                                                        <td><?= date("Y-m-d H:i", strtotime($row['date_created'])) ?></td>
+                                                        <td>
+                                                        <?php 
+                                switch($row['status']){
+                                    case 0:
+                                        echo '<span class="badge btn btn-info badge-secondary bg-gradient-secondary px-3 rounded-pill">Pending</span>';
+                                        break;
+                                    case 1:
+                                        echo '<span class="badge btn btn-primary badge-primary bg-gradient-primary px-3 rounded-pill">Confirmed</span>';
+                                        break;
+                                    case 2:
+                                        echo '<span class="badge btn btn-info badge-info bg-gradient-info px-3 rounded-pill">Packed</span>';
+                                        break;
+                                    case 3:
+                                        echo '<span class="badge btn btn-warning badge-warning bg-gradient-warning px-3 rounded-pill">Out for Delivery</span>';
+                                        break;
+                                    case 4:
+                                        echo '<span class="badge btn btn-success badge-success bg-gradient-success px-3 rounded-pill">Delivered</span>';
+                                        break;
+                                    case 5:
+                                        echo '<span class="badge btn btn-danger badge-danger bg-gradient-danger px-3 rounded-pill">Cancelled</span>';
+                                        break;
+                                    default:
+                                        echo '<span class="badge btn btn-light badge-light bg-gradient-light border px-3 rounded-pill">N/A</span>';
+                                        break;
+                                }
+                            ?>
+                                                        </td>
+                                                        <td>$<?= format_num($row['total_amount']) ?></td>
+                                                        <td><a  class="axil-btn view-btn" data-id="<?= $row['id'] ?>" data-code="<?= $row['code'] ?>">View</a></td>
                                                     </tr>
+                                                    <?php endwhile; ?>
                                                     <tr>
                                                         <th scope="row">#6523</th>
                                                         <td>September 10, 2020</td>
                                                         <td>On Hold</td>
                                                         <td>$326.63 for 3 items</td>
-                                                        <td><a href="#" class="axil-btn view-btn">View</a></td>
+                                                        <td><a  class="axil-btn view-btn" data-id="<?= $row['id'] ?>" data-code="<?= $row['code'] ?>">View</a></td>
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">#6523</th>
@@ -304,16 +340,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="nav-downloads" role="tabpanel">
+                                <!-- <div class="tab-pane fade" id="nav-downloads" role="tabpanel">
                                     <div class="axil-dashboard-order">
                                         <p>You don't have any download</p>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="tab-pane fade" id="nav-address" role="tabpanel">
                                     <div class="axil-dashboard-address">
                                         <p class="notice-text">The following addresses will be used on the checkout page by default.</p>
                                         <div class="row row--30">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12">
                                                 <div class="address-info mb--40">
                                                     <div class="addrss-header d-flex align-items-center justify-content-between">
                                                         <h4 class="title mb-0">Shipping Address</h4>
@@ -328,7 +364,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12">
                                                 <div class="address-info">
                                                     <div class="addrss-header d-flex align-items-center justify-content-between">
                                                         <h4 class="title mb-0">Billing Address</h4>
@@ -349,50 +385,103 @@
                                 <div class="tab-pane fade" id="nav-account" role="tabpanel">
                                     <div class="col-lg-9">
                                         <div class="axil-dashboard-account">
-                                            <form class="account-details-form">
+                                            <form class="account-details-form" id="manage-user">
+                                                <input type="hidden" name="id" value="<?php echo $_settings->userdata('id') ?>">
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-12" style="position: relative; margin-bottom: 3rem;">
+                                                    <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <label>First Name</label>
-                                                            <input type="text" class="form-control" value="Annie">
+                                                            <input type="text" class="form-control" name="firstname" value="<?= isset($firstname) ? $firstname : "" ?>">
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label>Middle Name</label>
+                                                            <input type="text"  placeholder="optional" class="form-control" name="middlename" value="<?= isset($middlename) ? $middlename : "" ?>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <label>Last Name</label>
-                                                            <input type="text" class="form-control" value="Mario">
+                                                            <input type="text" class="form-control" name="lastname" value="<?= isset($lastname) ? $lastname : "" ?>">
                                                         </div>
+                                                        
                                                     </div>
+                                                      <div style="position:absolute; bottom:0;">
+                                                      <small class="text-muted"><i>This will be how your name will be displayed in the account section and in reviews.</i></small>
+                                                      </div>
+                                                    </div>
+                                            
+                                                  
+
+                                                    <!-- <p class="b3 mt--10">This will be how your name will be displayed in the account section and in reviews</p> -->
                                                     <div class="col-12">
                                                         <div class="form-group mb--40">
-                                                            <label>Country/ Region</label>
-                                                            <select class="select2">
-                                                                <option value="1">United Kindom (UK)</option>
-                                                                <option value="1">United States (USA)</option>
-                                                                <option value="1">United Arab Emirates (UAE)</option>
-                                                                <option value="1">Australia</option>
+                                                            <label for="gender" class="control-label">Gender</label>
+                                                            <select type="text" id="gender" name="gender" class="form-control form-control-sm form-control-border select2" required>
+                                                                <option <?= isset($gender) && $gender == "Male" ? 'selected' : '' ?>>Male</option>
+                                                                <option <?= isset($gender) && $gender == "Female" ? 'selected' : '' ?>>Female</option>
                                                             </select>
-                                                            <p class="b3 mt--10">This will be how your name will be displayed in the account section and in reviews</p>
+                                                           
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <h5 class="title">Password Change</h5>
+                                                    <div class="col-lg-12">
                                                         <div class="form-group">
-                                                            <label>Password</label>
-                                                            <input type="password" class="form-control" value="123456789101112131415">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>New Password</label>
-                                                            <input type="password" class="form-control">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Confirm New Password</label>
-                                                            <input type="password" class="form-control">
-                                                        </div>
-                                                        <div class="form-group mb--0">
-                                                            <input type="submit" class="axil-btn" value="Save Changes">
+                                                            <label for="contact" class="control-label">Contact #</label>
+                                                            <input type="text" id="contact" name="contact" class="form-control form-control-sm form-control-border" value="<?= isset($contact) ? $contact : "" ?>" required>
                                                         </div>
                                                     </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="address" class="control-label">Address</label>
+                                                            <textarea rows="3" id="address" name="address" class="form-control form-control-sm rounded-0" required><?= isset($address) ? $address : "" ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="email" class="control-label">Email</label>
+                                                            <input type="email" id="email" name="email" class="form-control form-control-sm form-control-border" value="<?= isset($email) ? $email : "" ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="email" class="control-label">Password</label>
+                                                            <input type="email" id="email" name="password" class="form-control form-control-sm form-control-border" value="<?= isset($email) ? $email : "" ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="email" class="control-label">Confirm Password</label>
+                                                            <input type="email" id="email" name="cpassword" class="form-control form-control-sm form-control-border" value="<?= isset($email) ? $email : "" ?>" required>
+                                                            <small class="text-muted"><i>Leave the New Password Fileds blank if you don't want to update it.</i></small>
+                                                        </div>
+                                                      
+                                                    </div>
+                                                    <div class="form-group">
+                                <label>Upload Image</label>
+                                <div class="custom-file">
+                                    <input style="padding-top: 15px;" type="file" class="custom-file-input" id="customFile" name="img" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg" required>
+                                    <div class="image-preview">
+                                    <img src="<?= validate_image(isset($avatar) ? $avatar : "") ?>" alt="Shop Logo" id="cimg" class="border border-gray img-thumbnail">
+                                    </div>
+
+                                </div>
+                            </div>
+                                                    
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <!-- <label for="email" class="control-label">Enter Current Password</label> -->
+                                                            <input hidden type="email" id="email" name="email" class="form-control form-control-sm form-control-border" value="<?= isset($email) ? $email : "" ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                <!-- <button name="signup" type="submit" class="axil-btn btn-bg-primary submit-btn">Create Account</button> -->
+                                <button form="manage-user" type="submit" class="axil-btn btn-bg-primary submit-btn">Save Changes</button>
+                            </div>
+                                                    </div>
+
                                                 </div>
                                             </form>
                                         </div>
@@ -702,11 +791,11 @@
             </div>
         </div>
     </div>
-    <!-- Header Search Modal End -->
+   <!-- Header Search Modal End -->
 
 
 
-    <div class="cart-dropdown" id="cart-dropdown">
+   <div class="cart-dropdown" id="cart-dropdown">
         <div class="cart-content-wrap">
             <div class="cart-header">
                 <h2 class="header-title">Cart review</h2>
@@ -798,6 +887,29 @@
         </div>
     </div>
 
+         <!-- Conf modal Start -->
+
+         <div class="modal fade rounded-0" id="confirm_modal" role='dialog'>
+        <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header rounded-0">
+                    <h5 class="modal-title">Confirmation</h5>
+                </div>
+                <div class="modal-body rounded-0">
+                    <div id="delete_content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
+                    <button type="button" id="close_conf" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conf Modal End -->
+
+ 
+
     <!-- JS
 ============================================ -->
     <!-- Modernizer JS -->
@@ -823,6 +935,117 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
+
+    <script>
+        function displayImg(input, _this) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#cimg').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                $('#cimg').attr('src', "<?= validate_image(isset($avatar) ? $avatar : "") ?>");
+            }
+        }
+
+        $(function() {
+            $('.pass_view').click(function() {
+                var _el = $(this).closest('.input-group')
+                var type = _el.find('input').attr('type')
+                if (type == 'password') {
+                    _el.find('input').attr('type', 'text').focus()
+                    $(this).find('i.fa').removeClass('fa-eye-slash').addClass('fa-eye')
+                } else {
+                    _el.find('input').attr('type', 'password').focus()
+                    $(this).find('i.fa').addClass('fa-eye-slash').removeClass('fa-eye')
+
+                }
+            })
+            $('#manage-user').submit(function(e) {
+                e.preventDefault();
+                var _this = $(this)
+                $('.err-msg').remove();
+                var el = $('<div>')
+                el.addClass("alert err-msg")
+                el.hide()
+                if (_this[0].checkValidity() == false) {
+                    _this[0].reportValidity();
+                    return false;
+                }
+                if ($('#password').val() != $('#cpassword').val()) {
+                    el.addClass('alert-danger').text('Password does not match.')
+                    _this.prepend(el)
+                    el.show('slow')
+                    $('html,body').scrollTop(0)
+                    return false;
+                }
+                start_loader();
+                $.ajax({
+                    url: _base_url_ + "classes/Users.php?f=save_client",
+                    data: new FormData($(this)[0]),
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    method: 'POST',
+                    type: 'POST',
+                    dataType: 'json',
+                    error: err => {
+                        console.error(err)
+                        el.addClass('alert-danger').text("An error occured");
+                        _this.prepend(el)
+                        el.show('.modal')
+                        end_loader();
+                    },
+                    success: function(resp) {
+                        if (typeof resp == 'object' && resp.status == 'success') {
+                            location.reload();
+                        } else if (resp.status == 'failed' && !!resp.msg) {
+                            el.addClass('alert-danger').text(resp.msg);
+                            _this.prepend(el)
+                            el.show('.modal')
+                        } else {
+                            el.text("An error occured");
+                            console.error(resp)
+                        }
+                        $("html, body").scrollTop(0);
+                        end_loader()
+
+                    }
+                })
+            })
+
+            $('.view-btn').click(function() {
+    var orderId = $(this).data('id');
+    console.log({orderId});
+    $.ajax({
+      url:_base_url_ + 'orders/view_order.php?id='+ orderId,
+      type: 'GET',
+      data: {id: orderId},
+      success: function(response) {
+        console.log(response);
+        $('#quick-view-modal .modal-content').html(response);;
+                     $('#quick-view-modal').modal('show');
+                     $("body").addClass("modal-open");
+      }
+    })
+  })
+
+  $('#close_conf').click(function() {
+            $('#confirm_modal').removeClass("show")
+            $(".modal.fade.rounded-0").css("display", "none");
+            $("body").removeClass("modal-open");
+            $(".modal-backdrop").removeClass("show");
+        })
+        })
+    </script>
+
 </body>
+<?php if ($_settings->chk_flashdata('success')) : ?>
+    <script>
+        alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+    </script>
+<?php endif; ?>
 
 </html>

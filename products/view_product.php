@@ -151,3 +151,4 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                         </div>
                     </div>
                 </div>
+                <script src="assets/js/main.js"></script>

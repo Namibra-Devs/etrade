@@ -18,9 +18,9 @@ if (!file_exists($page . ".php") && !is_dir($page)) {
     include $page . '.php';
 }
 ?>
-<!-- <?php if ($_settings->chk_flashdata('success')) : ?>
+<?php if ($_settings->chk_flashdata('success')) : ?>
   <script>
     // alert("added!");
     alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
   </script>
-<?php endif; ?> -->
+<?php endif; ?>

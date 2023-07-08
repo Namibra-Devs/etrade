@@ -60,3 +60,4 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		<button class="btn btn-default bg-gradient-dark btn-sm btn-flat" type="button" data-dismiss="modal"><i class="fa f-times"></i> Close</button>
 	</div>
 </div>
+

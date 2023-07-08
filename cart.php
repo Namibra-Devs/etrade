@@ -219,7 +219,7 @@
                                     $vtotal += $total;
                                 ?>
                                     <tr id="cart-list">
-                                        <td class="product-remove"><a class="remove-wishlist" data-id="<?= $prow['id'] ?>"><i class="fal fa-times"></i></a></td>
+                                        <td class="product-remove"><a class="remove-wishlist rem_item" data-id="<?= $prow['id'] ?>"><i class="fal fa-times"></i></a></td>
                                         <td class="product-thumbnail"><a href="single-product.php"><img src="<?= validate_image($prow['image_path']) ?>" alt="Digital Product"></a></td>
                                         <td class="product-title"><a href="single-product.php"><?= $prow['name'] ?></a></td>
                                         <td class="product-price" data-title="Price"><span class="currency-symbol">$</span><?= format_num($prow['price']) ?></td>
@@ -289,14 +289,14 @@
                                                         <input type="radio" id="radio1" name="shipping" checked>
                                                         <label for="radio1">Free Shippping</label>
                                                     </div>
-                                                    <div class="input-group">
+                                                    <!-- <div class="input-group">
                                                         <input type="radio" id="radio2" name="shipping">
                                                         <label for="radio2">Local: $35.00</label>
                                                     </div>
                                                     <div class="input-group">
                                                         <input type="radio" id="radio3" name="shipping">
                                                         <label for="radio3">Flat rate: $12.00</label>
-                                                    </div>
+                                                    </div> -->
                                                 </td>
                                             </tr>
                                             <tr class="order-tax">
@@ -305,7 +305,7 @@
                                             </tr>
                                             <tr class="order-total">
                                                 <td>Total</td>
-                                                <td class="order-total-amount">$<?= format_num($vtotal) ?></td>
+                                                <td class="order-total-amount">$<?= format_num($vtotal + 8) ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -692,8 +692,30 @@
         </div>
     </div>
 
+    <!-- Conf modal Start -->
+
+    <div class="modal fade rounded-0" id="confirm_modal" role='dialog'>
+        <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header rounded-0">
+                    <h5 class="modal-title">Confirmation</h5>
+                </div>
+                <div class="modal-body rounded-0">
+                    <div id="delete_content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id='confirm' onclick="">Continue</button>
+                    <button type="button" id="close_conf" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conf Modal End -->
+
     <!-- JS
 ============================================ -->
+
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr.min.js"></script>
     <!-- jQuery JS -->
@@ -751,7 +773,7 @@
                         success: function(resp) {
                             if (resp.status == 'success') {
                                 // Handle success response
-                                // location.reload()
+                                location.reload()
                             } else if (!!resp.msg) {
                                 el.text(resp.msg)
                                 $('#msg').append(el)
@@ -767,18 +789,12 @@
                         }
                     })
                 })
-                // location.reload()
-                try {
-                    alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
-                } catch (err) {
-                    console.log(er);
-                    return
-                }
+
             })
 
-            $('.rem_item').click(function() {
-                _conf("Are you sure you want to delete this item from the cart list?", 'delete_cart', [$(this).attr('data-id')])
-            })
+            // $('.rem_item').click(function() {
+            //     _conf("Are you sure you want to delete this item from the cart list?", 'delete_cart', [$(this).attr('data-id')])
+            // })
         })
 
 
@@ -806,7 +822,36 @@
                 }
             })
         }
+
+        const _conf = function($msg = '', $func = '', $params = []) {
+            $('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")")
+            $('#confirm_modal .modal-body').html($msg)
+            $('#confirm_modal').modal('show')
+  
+        }
+
+        $('.rem_item').click(function() {
+            _conf("Are you sure delete this item from cart list?", 'delete_cart', [$(this).attr('data-id')])
+            $(".modal.fade.rounded-0").css("padding", "0 5px");
+            
+        })
+
+        $('#close_conf').click(function() {
+            $('#confirm_modal').removeClass("show")
+            $(".modal.fade.rounded-0").css("display", "none");
+            $("body").removeClass("modal-open");
+            $(".modal-backdrop").removeClass("show");
+        })
+
     </script>
+    
+
+    <?php if ($_settings->chk_flashdata('success')) : ?>
+        <script>
+            // alert("added!");
+            alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+        </script>
+    <?php endif; ?>
 
 </body>
 

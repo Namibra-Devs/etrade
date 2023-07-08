@@ -823,13 +823,8 @@
                      });
                      if (resp.status == 'success') {
                          console.log("success");
-                         // location.reload()
-                         try {
-                             alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
-                         } catch (err) {
-                             console.log(er);
-                             return
-                         }
+                         location.reload()
+                       
                      } else if (!!resp.msg) {
                          // alert("2ooo")
                          el.text(resp.msg)

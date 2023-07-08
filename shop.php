@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="assets/css/vendor/base.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
 
+    <?php require_once("inc/header_1.php")  ?>
+
     <style>
         a.axil-btn.btn-bg-lighter.btn-load-more:hover {
             color: white;
@@ -855,3 +857,9 @@
 <?php 
 
 var_dump($_SESSION); ?>
+<?php if ($_settings->chk_flashdata('success')) : ?>
+  <script>
+    // alert("added!");
+    alert_toast("<?php echo $_settings->flashdata('success') ?>", 'success')
+  </script>
+<?php endif; ?>
