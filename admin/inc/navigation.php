@@ -72,7 +72,12 @@
                         </p>
                       </a>
                     </li>
-                    <?php if($_settings->userdata('type') == 1): ?>
+                    <?php $status = $_settings->userdata('type')?>
+                    <?php $status = 1?>
+                    <?php 
+                    // if($_settings->userdata('type') == 1):
+                     ?>
+                    <?php if($status == 1): ?>
                     <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=shop_types" class="nav-link nav-shop_types">

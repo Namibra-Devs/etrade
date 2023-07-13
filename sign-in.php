@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTrade || Sign In</title>
+    <title>ITP || Sign In</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,6 +30,74 @@
 
     <style>
     
+    <style>
+        .alert-danger {
+            margin-bottom: 2rem !important;
+        }
+
+        select.form-control-lg {
+            height: 50px;
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+            border-width: 1px;
+        }
+
+        .form-group input:focus {
+            border-color: var(--color-primary);
+        }
+
+        select.form-control-lg:focus {
+            border: 1px solid var(--color-primary);
+
+
+
+            outline: none;
+            box-shadow: none;
+        }
+
+        .image-preview-container {
+            position: relative;
+        }
+
+        .image-preview-container .custom-file-input {
+            padding-right: 60px;
+        }
+
+        .image-preview {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+            /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); */
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bg_image--10 {
+            background-image: url("./assets/images/bg/bg-image-15.png");
+        }
+
+        .bg_image>.title {
+            position: absolute;
+            top: 50px;
+            left: 65px;
+        }
+
+        .axil-btn.btn-bg-secondary.sign-up-btn::before {
+            background-color: var(--color-primary);
+        }
+
+        .axil-btn.btn-bg-primary.submit-btn::before {
+            background-color: var(--color-primary);
+        }
+    </style>
     </style>
 
 </head>
@@ -50,10 +118,13 @@
         <!-- Start Header -->
         <div class="signin-header">
             <div class="row align-items-center">
-                <div class="col-sm-4">
-                    <a href="index.php" class="site-logo"><img src="./assets/images/logo/logo.png" alt="logo"></a>
+                <div class="col-xl-4 col-sm-6">
+                    <!-- <a href="index.php" class="site-logo"><img src="./assets/images/logo/logo.png" alt="logo"></a> -->
                 </div>
-                <div class="col-sm-8">
+                <div class="col-md-2 d-lg-block d-none">
+                    <!-- <a href="sign-in.php" class="back-btn"><i class="far fa-angle-left"></i></a> -->
+                </div>
+                <div class="col-xl-6 col-lg-4 col-sm-6">
                     <div class="singin-header-btn">
                         <p>Not a member?</p>
                         <a href="sign-up.php" class="axil-btn btn-bg-secondary sign-up-btn">Sign Up Now</a>
@@ -65,7 +136,7 @@
 
         <div class="row">
             <div class="col-xl-4 col-lg-6">
-                <div class="axil-signin-banner bg_image bg_image--9">
+                <div class="axil-signin-banner bg_image bg_image--10">
                     <h3 class="title">We Offer the Best Products</h3>
                 </div>
             </div>
@@ -85,7 +156,7 @@
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between">
                                 <button name="signin" type="submit" class="axil-btn btn-bg-primary submit-btn">Sign In</button>
-                                <a href="forgot-password.php" class="forgot-btn">Forget password?</a>
+                                <a href="forgot-password.php" class="forgot-btn">Forgot password?</a>
                             </div>
                         </form>
                     </div>

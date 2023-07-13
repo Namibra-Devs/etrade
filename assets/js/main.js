@@ -76,7 +76,8 @@
                             _self.closest('div').find('[name="' + data.field + '"]');
                             _self.find('.axil-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
                         } else {
-                            alert("Email has been sent successfully!")
+                            // alert("Email has been sent successfully!")
+                            location.reload();
                             $('.error-msg').hide();
                             $('.form-group').removeClass('focused');
                             _self.find('.axil-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
@@ -972,7 +973,9 @@
         sideOffcanvasToggle: function(selectbtn, openElement) {
 
             $('body').on('click', selectbtn, function(e) {
-                e.preventDefault();
+                if(selectbtn != ".cart-dropdown-btn") e.preventDefault();
+
+                console.log("Hello!");
 
                 var $this = $(this),
                     wrapp = $this.parents('body'),

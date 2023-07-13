@@ -9,8 +9,8 @@
 
 <?php
 if (!file_exists($page . ".php") && !is_dir($page)) {
-  // echo "ssssssssssssssssssssss";
-  include '404.html';
+
+  include '404.php';
 } else {
   if (is_dir($page))
     include $page . '/index.php';

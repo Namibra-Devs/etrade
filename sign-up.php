@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- <title>eTrade || Sign Up</title> -->
-    <title>International Trade Properties || Sign Up</title>
+    <title>ITP || Sign Up</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,7 +46,7 @@
         }
 
         .form-group input:focus {
-            border-color: #57b357;
+            border-color: var(--color-primary);
         }
 
         select.form-control-lg:focus {
@@ -94,11 +94,11 @@
         }
 
         .axil-btn.btn-bg-secondary.sign-up-btn::before {
-            background-color: #57b357;
+            background-color: var(--color-primary);
         }
 
         .axil-btn.btn-bg-primary.submit-btn::before {
-            background-color: #57b357;
+            background-color: var(--color-primary);
         }
     </style>
 
@@ -111,16 +111,19 @@
 
         <!-- Start Header -->
         <div class="signin-header">
-            <div class="row align-items-center">
-                <div class="col-md-6">
+        <div class="row align-items-center">
+                <div class="col-xl-4 col-sm-6">
                     <!-- <a href="index.php" class="site-logo"><img src="./assets/images/logo/logo.png" alt="logo"></a> -->
-                    <!-- <a href="index.php" class="site-logo"><img src="./assets/images/favicon.png" alt="logo"></a> -->
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2 d-lg-block d-none">
+                    <!-- <a href="sign-in.php" class="back-btn"><i class="far fa-angle-left"></i></a> -->
+                </div>
+                
+                <div class="col-xl-6 col-lg-4 col-sm-6">
                     <div class="singin-header-btn">
                         <p>Already a member?</p>
-                        <!-- <a href="<?= base_url . 'sign-in.php' ?>" class="axil-btn btn-bg-secondary sign-up-btn">Sign In</a> -->
-                        <a href="#" class="axil-btn btn-bg-secondary sign-up-btn">Sign In</a>
+                        <a href="<?= base_url . 'sign-in.php' ?>" class="axil-btn btn-bg-secondary sign-up-btn">Sign In</a>
+                        <!-- <a href="#" class="axil-btn btn-bg-secondary sign-up-btn">Sign In</a> -->
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
         }
 
         .form-control:focus{
-            border-color: #57b357;
+            /* border-color: #57b357; */
         }
 
         .registration-form {
@@ -22,7 +22,7 @@
             margin: 20px auto;
             padding: 20px;
             background-color: #fff;
-            border-top: 3px solid #57b357;;
+            border-top: 3px solid #007bff;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -51,14 +51,14 @@
             border-radius: 5px;
         }
 
-        .text-center > a {
+        /* .text-center > a {
             color: #57b357;
-        }
+        } */
 
-        .btn.btn-primary{
-            background-color: #57b357;
-            border-color: #57b357;
-        }
+        /* .btn.btn-primary{
+            background-color:  var(--color-primary);
+            border-color:  var(--color-primary);
+        } */
     </style>
     </head>
     <div class="justify-content-center align-items-center flex-row h-100">
@@ -92,7 +92,7 @@
                 <div class="form-group">
                     <label for="shop_type_id" class="control-label">Shop Type</label>
                     <select type="text" id="shop_type_id" name="shop_type_id" class="form-control" required>
-                        <option value="" disabled selected></option>
+                        <!-- <option value="" disabled selected></option> -->
                         <?php
                         $types = $conn->query("SELECT * FROM `shop_type_list` where delete_flag = 0 and `status` = 1 order by `name` asc ");
                         while ($row = $types->fetch_assoc()) :
@@ -147,14 +147,14 @@
                 <!-- End of form fields -->
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create Account</button>
                     <!-- <button type="submit" class="btn btn-primary">Create Account</button> -->
+                    <button type="submit" class="btn btn-primary">Create Account</button>
                 </div>
                 <div class="text-center">
-                    <!-- <a href="<?= base_url ?>">Back to Site</a> |
-                    <a href="<?= base_url . 'vendor/login.php' ?>">Already have an Account</a> -->
-                    <a href="#">Back to Site</a> |
-                    <a href="#">Already have an Account</a>
+                    <a href="<?= base_url ?>">Back to Site</a> |
+                    <a href="<?= base_url . 'vendor/login.php' ?>">Already have an Account</a>
+                    <!-- <a href="#">Back to Site</a> |
+                    <a href="#">Already have an Account</a> -->
                 </div>
             </form>
         </div>

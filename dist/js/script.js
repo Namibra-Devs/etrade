@@ -123,7 +123,7 @@ $(document).ready(function() {
                     location.reload()
                 } else {
                     $('#msg').html('<div class="alert alert-danger err_msg">An Error occured</div>')
-                    end_load()
+                    end_loader()
                 }
             }
         })

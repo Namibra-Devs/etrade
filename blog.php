@@ -1,197 +1,5 @@
-<?php ?>
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTrade || Blog Grid</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
-
-    <!-- CSS
-    ============================================ -->
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/vendor/flaticon/flaticon.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/sal.css">
-    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/vendor/base.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
-
-</head>
-
-
-<body class="sticky-header">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
-    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
-    <!-- Start Header -->
-    <header class="header axil-header header-style-5">
-        <div class="axil-header-top">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-sm-6 col-12">
-                        <div class="header-top-dropdown">
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    English
-                                </button>
-                                <!-- <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">English</a></li>
-                                    <li><a class="dropdown-item" href="#">Arabic</a></li>
-                                    <li><a class="dropdown-item" href="#">Spanish</a></li>
-                                </ul> -->
-                            </div>
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    USD
-                                </button>
-                                <!-- <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">USD</a></li>
-                                    <li><a class="dropdown-item" href="#">AUD</a></li>
-                                    <li><a class="dropdown-item" href="#">EUR</a></li>
-                                </ul> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-12">
-                        <div class="header-top-link">
-                            <ul class="quick-link">
-                                <li><a href="#">Help</a></li>
-                                <li><a href="sign-up.php">Join Us</a></li>
-                                <li><a href="sign-in.php">Sign In</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Start Mainmenu Area  -->
-        <div id="axil-sticky-placeholder"></div>
-        <div class="axil-mainmenu">
-            <div class="container">
-                <div class="header-navbar">
-                    <div class="header-brand">
-                        <a href="index.php" class="logo logo-dark">
-                            <img src="assets/images/logo/logo.png" alt="Site Logo">
-                        </a>
-                        <a href="index.php" class="logo logo-light">
-                            <img src="assets/images/logo/logo-light.png" alt="Site Logo">
-                        </a>
-                    </div>
-                    <div class="header-main-nav">
-                        <!-- Start Mainmanu Nav -->
-                        <nav class="mainmenu-nav">
-                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                            <div class="mobile-nav-brand">
-                                <a href="index.php" class="logo">
-                                    <img src="assets/images/logo/logo.png" alt="Site Logo">
-                                </a>
-                            </div>
-                            <ul class="mainmenu">
-                                <li class="menu-item-has-children">
-                                    <a href="index.php">Home</a>
-                                </li>
-                                <li><a href="about-us.php">About</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="blog.php">Blog</a>
-                                </li>
-                                <li><a href="contact.php">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <!-- End Mainmanu Nav -->
-                    </div>
-                    <div class="header-action">
-                        <ul class="action-list">
-                            <li class="axil-search d-xl-block d-none">
-                                <input type="search" class="placeholder product-search-input" name="search2" id="search2" value="" maxlength="128" placeholder="What are you looking for?" autocomplete="off">
-                                <button type="submit" class="icon wooc-btn-search">
-                                    <i class="flaticon-magnifying-glass"></i>
-                                </button>
-                            </li>
-                            <li class="axil-search d-xl-none d-block">
-                                <a href="javascript:void(0)" class="header-search-icon" title="Search">
-                                    <i class="flaticon-magnifying-glass"></i>
-                                </a>
-                            </li>
-                            <li class="wishlist">
-                                <a href="wishlist.php">
-                                    <i class="flaticon-heart"></i>
-                                </a>
-                            </li>
-                            <li class="shopping-cart">
-                                <a href="#" class="cart-dropdown-btn">
-                                    <span class="cart-count">3</span>
-                                    <i class="flaticon-shopping-cart"></i>
-                                </a>
-                            </li>
-                            <li class="my-account">
-                                <a href="javascript:void(0)">
-                                    <i class="flaticon-person"></i>
-                                </a>
-                                <div class="my-account-dropdown">
-                                    <span class="title">QUICKLINKS</span>
-                                    <ul>
-                                        <li>
-                                            <a href="my-account.php">My Account</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Initiate return</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Support</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Language</a>
-                                        </li>
-                                    </ul>
-                                    <a href="sign-in.php" class="axil-btn btn-bg-primary">Login</a>
-                                    <div class="reg-footer text-center">No account yet? <a href="sign-up.php" class="btn-link">REGISTER HERE.</a></div>
-                                </div>
-                            </li>
-                            <li class="axil-mobile-toggle">
-                                <button class="menu-btn mobile-nav-toggler">
-                                    <i class="flaticon-menu-2"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Mainmenu Area -->
-        <!-- <div class="header-top-campaign">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-5 col-lg-6 col-md-10">
-                        <div class="header-campaign-activation axil-slick-arrow arrow-both-side header-campaign-arrow">
-                            <div class="slick-slide">
-                                <div class="campaign-content">
-                                    <p>STUDENT NOW GET 10% OFF : <a href="#">GET OFFER</a></p>
-                                </div>
-                            </div>
-                            <div class="slick-slide">
-                                <div class="campaign-content">
-                                    <p>STUDENT NOW GET 10% OFF : <a href="#">GET OFFER</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    </header>
-    <!-- End Header -->
+<?php $title = "About Us"; ?>
+<?php require_once("inc/header.php")  ?>
     <main class="main-wrapper">
         <!-- Start Breadcrumb Area  -->
         <div class="axil-breadcrumb-area">
@@ -210,7 +18,7 @@
                     <div class="col-lg-6 col-md-4">
                         <div class="inner">
                             <div class="bradcrumb-thumb">
-                                <img src="assets/images/product/product-45.png" alt="Image">
+                                <img width="120px" height="120px" src="assets/images/bg/bg-image-15.png" alt="Image">
                             </div>
                         </div>
                     </div>
@@ -229,7 +37,7 @@
                                     <div class="inner">
                                         <div class="thumbnail">
                                             <a href="blog-details.php">
-                                                <img src="assets/images/blog/blog-10.png" alt="Blog Images">
+                                                <img width="420px" height="510px" src="assets/images/bg/bg-image-15.png"" alt="Blog Images">
                                             </a>
                                             <div class="blog-category">
                                                 <a href="#">Digital Art's</a>
@@ -646,7 +454,7 @@
         <!-- End Blog Area  -->
 
         <!-- Start Axil Newsletter Area  -->
-        <div class="axil-newsletter-area axil-section-gap pt--0">
+        <!-- <div class="axil-newsletter-area axil-section-gap pt--0">
             <div class="container">
                 <div class="etrade-newsletter-wrapper bg_image bg_image--5">
                     <div class="newsletter-content">
@@ -660,7 +468,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- End .container -->
         </div>
         <!-- End Axil Newsletter Area  -->

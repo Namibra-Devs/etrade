@@ -1,192 +1,6 @@
-<?php  require_once('./config.php'); ?>
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>eTrade || Checkout</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
-
-    <!-- CSS
-    ============================================ -->
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/vendor/flaticon/flaticon.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick.css">
-    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
-    <link rel="stylesheet" href="assets/css/vendor/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/vendor/sal.css">
-    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/vendor/base.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
-
-    <?php require_once("inc/header_1.php")  ?>
-
-</head>
-
-
-<body class="sticky-header">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
-    <a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
-    <!-- Start Header -->
-    <header class="header axil-header header-style-5">
-        <div class="axil-header-top">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-sm-6 col-12">
-                        <div class="header-top-dropdown">
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    English
-                                </button>
-                            </div>
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    USD
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-12">
-                        <div class="header-top-link">
-                            <ul class="quick-link">
-                                <li><a href="#">Help</a></li>
-                                <li><a href="sign-up.php">Join Us</a></li>
-                                <li><a href="sign-in.php">Sign In</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Start Mainmenu Area  -->
-        <div id="axil-sticky-placeholder"></div>
-        <div class="axil-mainmenu">
-            <div class="container">
-                <div class="header-navbar">
-                    <div class="header-brand">
-                        <a href="index.php" class="logo logo-dark">
-                            <img src="assets/images/logo/logo.png" alt="Site Logo">
-                        </a>
-                        <a href="index.php" class="logo logo-light">
-                            <img src="assets/images/logo/logo-light.png" alt="Site Logo">
-                        </a>
-                    </div>
-                    <div class="header-main-nav">
-                        <!-- Start Mainmanu Nav -->
-                        <nav class="mainmenu-nav">
-                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
-                            <div class="mobile-nav-brand">
-                                <a href="index.php" class="logo">
-                                    <img src="assets/images/logo/logo.png" alt="Site Logo">
-                                </a>
-                            </div>
-                            <ul class="mainmenu">
-                                <li class="menu-item-has-children">
-                                    <a href="index.php">Home</a>
-                                </li>
-                                <li class="menu-item-has-children">
-                                    <a href="shop.php">Shop</a>
-                                </li>
-                                <li><a href="about-us.php">About</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="blog.php">Blog</a>
-                                </li>
-                                <li><a href="contact.php">Contact</a></li>
-                            </ul>
-                        </nav>
-                        <!-- End Mainmanu Nav -->
-                    </div>
-                    <div class="header-action">
-                        <ul class="action-list">
-                            <li class="axil-search d-xl-block d-none">
-                                <input type="search" class="placeholder product-search-input" name="search2" id="search2" value="" maxlength="128" placeholder="What are you looking for?" autocomplete="off">
-                                <button type="submit" class="icon wooc-btn-search">
-                                    <i class="flaticon-magnifying-glass"></i>
-                                </button>
-                            </li>
-                            <li class="axil-search d-xl-none d-block">
-                                <a href="javascript:void(0)" class="header-search-icon" title="Search">
-                                    <i class="flaticon-magnifying-glass"></i>
-                                </a>
-                            </li>
-                            <li class="wishlist">
-                                <a href="wishlist.php">
-                                    <i class="flaticon-heart"></i>
-                                </a>
-                            </li>
-                            <li class="shopping-cart">
-                                <a href="#" class="cart-dropdown-btn">
-                                    <span class="cart-count">3</span>
-                                    <i class="flaticon-shopping-cart"></i>
-                                </a>
-                            </li>
-                            <li class="my-account">
-                                <a href="javascript:void(0)">
-                                    <i class="flaticon-person"></i>
-                                </a>
-                                <div class="my-account-dropdown">
-                                    <span class="title">QUICKLINKS</span>
-                                    <ul>
-                                        <li>
-                                            <a href="my-account.php">My Account</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Initiate return</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Support</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Language</a>
-                                        </li>
-                                    </ul>
-                                    <a href="sign-in.php" class="axil-btn btn-bg-primary">Login</a>
-                                    <div class="reg-footer text-center">No account yet? <a href="sign-up.php" class="btn-link">REGISTER HERE.</a></div>
-                                </div>
-                            </li>
-                            <li class="axil-mobile-toggle">
-                                <button class="menu-btn mobile-nav-toggler">
-                                    <i class="flaticon-menu-2"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Mainmenu Area -->
-        <!-- <div class="header-top-campaign">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-5 col-lg-6 col-md-10">
-                        <div class="header-campaign-activation axil-slick-arrow arrow-both-side header-campaign-arrow">
-                            <div class="slick-slide">
-                                <div class="campaign-content">
-                                    <p>STUDENT NOW GET 10% OFF : <a href="#">GET OFFER</a></p>
-                                </div>
-                            </div>
-                            <div class="slick-slide">
-                                <div class="campaign-content">
-                                    <p>STUDENT NOW GET 10% OFF : <a href="#">GET OFFER</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-    </header>
-    <!-- End Header -->
+<?php $title ="Checkout"; ?>
+    <?php require_once("inc/header.php")  ?>
+    <?php if (!($_settings->userdata('id') > 0))  echo '<script>window.location.href = "'.base_url.'sign-in.php";</script>'; ?>
 
     <main class="main-wrapper">
 
@@ -195,16 +9,16 @@
             <div class="container">
                 <form id="checkout-form">
                     <div class="row">
-                        <div class="col-lg-6"> 
+                        <div class="col-lg-6">
                             <div class="axil-checkout-billing">
-  <h4 class="title mb--40">Billing details</h4>
-  <div class="form-group">
-    <label>Delivery Address <span>*</span></label>
-    <textarea name="delivery_address" id="delivery_address" rows="4" class="form-control rounded-0" required><?= $_settings->userdata('address') ?></textarea>
+                                <h4 class="title mb--40">Billing details</h4>
+                                <div class="form-group">
+                                    <label>Delivery Address <span>*</span></label>
+                                    <textarea name="delivery_address" id="delivery_address" rows="4" class="form-control rounded-0" required><?= $_settings->userdata('address') ?></textarea>
 
 
-  </div>
-</div>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="col-lg-6">
@@ -219,19 +33,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
-                                $gtotal = 0;
-                                $vtotal = 0;
-                                $products = $conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' order by p.name asc");
-                                while ($prow = $products->fetch_assoc()) :
-                                    $total = $prow['price'] * $prow['quantity'];
-                                    $gtotal += $total;
-                                    $vtotal += $total;
-                                ?>
-                                            <tr class="order-product">
-                                                <td><?= $prow['name'] ?><span class="quantity"><?= $prow['quantity'] ?></span></td>
-                                                <td>$<?= format_num($prow['price']) ?></td>
-                                            </tr>
+                                            <?php
+                                            $gtotal = 0;
+                                            $vtotal = 0;
+                                            $products = $conn->query("SELECT c.*, p.name as `name`, p.price,p.image_path FROM `cart_list` c inner join product_list p on c.product_id = p.id where c.client_id = '{$_settings->userdata('id')}' order by p.name asc");
+                                            while ($prow = $products->fetch_assoc()) :
+                                                $total = $prow['price'] * $prow['quantity'];
+                                                $gtotal += $total;
+                                                $vtotal += $total;
+                                            ?>
+                                                <tr class="order-product">
+                                                    <td><?= $prow['name'] ?><span class="quantity"><?= $prow['quantity'] ?></span></td>
+                                                    <td>$<?= format_num($prow['price']) ?></td>
+                                                </tr>
                                             <?php endwhile; ?>
                                             <!-- <tr class="order-product">
                                                 <td>Commodo Blown Lamp <span class="quantity">x1</span></td>
@@ -269,17 +83,18 @@
                                     </table>
                                 </div>
                                 <div class="order-payment-method">
-                                <div class="single-payment">
-  <div class="input-group">
-    <label>Direct bank transfer</label>
-  </div>
-  <p>Make your payment directly into our bank account. Please use the following details for the transfer:</p>
-  <ul>
-    <li>Account Number: 1234567890</li>
-    <li>Order ID: ABC123</li>
-  </ul>
-  <p>Your order will not be shipped until the funds have cleared in our account.</p>
-</div>
+                                    <div class="single-payment">
+                                        <div class="input-group">
+                                            <label>Direct bank transfer</label>
+                                        </div>
+                                        <p>Make your payment directly into our bank account. Please use the following details for the transfer:</p>
+                                        <ul>
+                                            <li>Account Name: <?php echo $_settings->info('account_name') ? $_settings->info('account_name') : '' ?></li>
+                                            <li>Account Number: <?php echo $_settings->info('account_number') ? $_settings->info('account_number') : '' ?></li>
+                                            <li>Order ID: ABC123</li>
+                                        </ul>
+                                        <p>Your order will not be shipped until the funds have cleared in our account.</p>
+                                    </div>
 
                                     <!-- <div class="single-payment">
                                         <div class="input-group">
@@ -532,12 +347,12 @@
                         <div class="product-content">
                             <div class="product-rating">
                                 <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                </span>
                                 <span class="rating-number"><span>100+</span> Reviews</span>
                             </div>
                             <h6 class="product-title"><a href="single-product.php">Media Remote</a></h6>
@@ -560,12 +375,12 @@
                         <div class="product-content">
                             <div class="product-rating">
                                 <span class="rating-icon">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fal fa-star"></i>
-                            </span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fal fa-star"></i>
+                                </span>
                                 <span class="rating-number"><span>100+</span> Reviews</span>
                             </div>
                             <h6 class="product-title"><a href="single-product.php">Media Remote</a></h6>
@@ -603,12 +418,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(64)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product-3.php">Wireless PS Handler</a></h3>
@@ -626,12 +441,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(4)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product-2.php">Gradient Light Keyboard</a></h3>
@@ -649,12 +464,12 @@
                         <div class="item-content">
                             <div class="product-rating">
                                 <span class="icon">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</span>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
                                 <span class="rating-number">(6)</span>
                             </div>
                             <h3 class="item-title"><a href="single-product.php">HD CC Camera</a></h3>
@@ -705,52 +520,52 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-    $('#checkout-form').submit(function(e){
-        e.preventDefault()
-        var _this = $(this)
-        if(_this[0].checkValidity() == false){
-            _this[0].reportValidity()
-            return false;
-        }
-        if($('tbody .order-product').length <= 0){
-            alert_toast("There is no order listed in the cart yet.",'error')
-            return false;
-        }
-        $('.pop_msg').remove();
-        var el = $('<div>')
+        $('#checkout-form').submit(function(e) {
+            e.preventDefault()
+            var _this = $(this)
+            if (_this[0].checkValidity() == false) {
+                _this[0].reportValidity()
+                return false;
+            }
+            if ($('tbody .order-product').length <= 0) {
+                alert_toast("There is no order listed in the cart yet.", 'error')
+                return false;
+            }
+            $('.pop_msg').remove();
+            var el = $('<div>')
             el.addClass("alert alert-danger pop_msg")
             el.hide()
-        start_loader()
-        $.ajax({
-            url:_base_url_+'classes/Master.php?f=place_order',
-            method:'POST',
-            data:_this.serialize(),
-            dataType:'json',
-            error:err=>{
-                console.error(err)
-                alert_toast("An error occurred.",'error')
-                end_loader()
-            },
-            success:function(resp){
-                if(resp.status == 'success'){
-                    location.replace('./shop.php')
-                }else if(!!resp.msg){
-                    el.text(resp.msg)
-                    _this.prepend(el)
-                    el.show('slow')
-                    $('html,body').scrollTop(0)
-                }else{
-                    el.text("An error occurred.")
-                    _this.prepend(el)
-                    el.show('slow')
-                    $('html,body').scrollTop(0)
+            start_loader()
+            $.ajax({
+                url: _base_url_ + 'classes/Master.php?f=place_order',
+                method: 'POST',
+                data: _this.serialize(),
+                dataType: 'json',
+                error: err => {
+                    console.error(err)
+                    alert_toast("An error occurred.", 'error')
+                    end_loader()
+                },
+                success: function(resp) {
+                    if (resp.status == 'success') {
+                        location.replace('./shop.php')
+                    } else if (!!resp.msg) {
+                        el.text(resp.msg)
+                        _this.prepend(el)
+                        el.show('slow')
+                        $('html,body').scrollTop(0)
+                    } else {
+                        el.text("An error occurred.")
+                        _this.prepend(el)
+                        el.show('slow')
+                        $('html,body').scrollTop(0)
+                    }
+                    end_loader()
                 }
-                end_loader()
-            }
+            })
         })
-    })
-</script>
+    </script>
 
-</body>
+    </body>
 
-</html>
+    </html>
