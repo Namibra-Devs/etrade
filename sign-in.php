@@ -156,7 +156,7 @@
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between">
                                 <button name="signin" type="submit" class="axil-btn btn-bg-primary submit-btn">Sign In</button>
-                                <a href="forgot-password.php" class="forgot-btn">Forgot password?</a>
+                                <a href="forgot-password.php?ref=1" class="forgot-btn">Forgot password?</a>
                             </div>
                         </form>
                     </div>

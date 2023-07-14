@@ -86,6 +86,10 @@
                     <input type="text" id="shop_owner" name="shop_owner" class="form-control" required>
                 </div>
                 <div class="form-group">
+                    <label for="email" class="control-label">Email Address</label>
+                    <input type="text" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
                     <label for="contact" class="control-label">Contact #</label>
                     <input type="text" id="contact" name="contact" class="form-control" required>
                 </div>

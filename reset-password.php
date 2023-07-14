@@ -3,6 +3,7 @@
 $redirectUrl = "forgot-password.php";
 if(isset($_GET["token"])){
     $token = $_GET['token'];
+    $type = $_GET['type'];
 $is_valid_token = false;
 
 
@@ -192,6 +193,7 @@ if ($resetData) {
                     <div class="axil-signin-form">
                         <h3 class="title mb--35">Reset Password</h3>
                         <form id="reset-form" class="singin-form">
+                        <input type="hidden" name="type" id="type" value="<?=$type?>">
                         <input type='hidden' name='token' value='<?= $token ?>'>
                             <div class="form-group">
                                 <label>New password</label>
@@ -277,7 +279,9 @@ $(document).ready(function(){
         if(typeof resp =='object' && resp.status == 'success'){
             // alert(resp.msg)
             // location.reload()
-            window.location.href = "sign-in.php";
+            var token = "<?=$_GET['type']?>";
+            token == "1" ? window.location.href = "sign-in.php" : window.location.href = _base_url_+"vendor/login.php";
+            // window.location.href = "sign-in.php";
         }else if(resp.status == 'failed' && !!resp.msg){
             el.addClass('alert-danger').text(resp.msg);
             _this.prepend(el)

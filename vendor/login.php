@@ -47,7 +47,7 @@
                 <a href="<?= base_url ?>">Back to Site</a>
               </div>
               <div class="col-6 text-right">
-                <a href="forgot-password.html">Forgot Password?</a>
+                <a href="<?=base_url.'forgot-password.php?ref=2'?>">Forgot Password?</a>
               </div>
             </div>
             <div class="row mt-3">
@@ -121,6 +121,57 @@
         })
       })
     </script>
+    <script>
+
+
+$(document).ready(function(){
+    $('#forgot-password').on('submit', function(e){
+        e.preventDefault();
+        var _this = $(this)
+          $('.err-msg').remove();
+          var el = $('<div>')
+          el.addClass("alert err-msg")
+          el.hide()
+        var email = $('#email').val();
+        $.ajax({
+    url:_base_url_+"classes/Users.php?f=forgot_password",
+    data: new FormData($(this)[0]),
+    cache: false,
+    contentType: false,
+    processData: false,
+    method: 'POST',
+    type: 'POST',
+    dataType: 'json',
+    error:err=>{
+        console.error(err)
+        el.addClass('alert-danger').text("An error occured");
+        _this.prepend(el)
+        el.show('.modal')
+        end_loader();
+    },
+    success:function(resp){
+        if(typeof resp =='object' && resp.status == 'success'){
+            // alert(resp.msg)
+       
+            location.reload()
+            // console.log(resp.msg);
+        }else if(resp.status == 'failed' && !!resp.msg){
+            el.addClass('alert-danger').text(resp.msg);
+            _this.prepend(el)
+            el.show('.modal')
+        }else{
+            el.text("An error occured");
+            console.error(resp)
+        }
+        $("html, body").scrollTop(0);
+        end_loader()
+
+    }
+})
+    });
+});
+
+</script>
 </body>
 
 </html>

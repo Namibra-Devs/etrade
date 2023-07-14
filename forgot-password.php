@@ -149,6 +149,7 @@
                         <h3 class="title">Forgot Password?</h3>
                         <p class="b2 mb--55">Enter the email address you used when you joined and we’ll send you instructions to reset your password.</p>
                         <form id="forgot-password" class="singin-form">
+                            <input type="hidden" name="ref" id="ref" value="<?=isset($_GET['ref']) ? $_GET['ref'] : ''?>">
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" class="form-control" name="email" value="annie@example.com">
@@ -202,7 +203,7 @@
     
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-    <script>
+<script>
 
 
 $(document).ready(function(){
@@ -234,8 +235,8 @@ $(document).ready(function(){
         if(typeof resp =='object' && resp.status == 'success'){
             // alert(resp.msg)
        
-            location.reload()
-            // console.log(resp.msg);
+            // location.reload()
+            console.log(resp.msg);
         }else if(resp.status == 'failed' && !!resp.msg){
             el.addClass('alert-danger').text(resp.msg);
             _this.prepend(el)
