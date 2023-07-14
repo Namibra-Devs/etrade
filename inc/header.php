@@ -10,7 +10,7 @@
      <meta name="description" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <!-- Favicon -->
-     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon_2.png">
+     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
 
      <!-- CSS
     ============================================ -->
@@ -121,8 +121,8 @@ select.form-control-lg:focus {
   </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title><?php echo $_settings->info('title') != false ? $_settings->info('title').' | ' : '' ?><?php echo $_settings->info('name') ?></title>
-    <link rel="icon" href="<?php echo validate_image($_settings->info('logo')) ?>" />
+  	<!-- <title><?php echo $_settings->info('title') != false ? $_settings->info('title').' | ' : '' ?><?php echo $_settings->info('name') ?></title> -->
+    <!-- <link rel="icon" href="<?php echo validate_image($_settings->info('logo')) ?>" /> -->
     <!-- Google Font: Source Sans Pro -->
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback"> -->
     <!-- Font Awesome -->

@@ -193,18 +193,18 @@ class Users extends DBConnection
 		   if ($save) {
 			   $resp['status'] = "success";
 			   $vid = empty($id) ? $this->conn->insert_id : $id;
-			   // $select_query = "SELECT name FROM vendor_list WHERE id = $vid";
-			   // $vendor_name_result = mysqli_query($this->conn, $select_query);
+			   $select_query = "SELECT name FROM vendor_list WHERE id = $vid";
+			   $vendor_name_result = mysqli_query($this->conn, $select_query);
 
-			   // if ($vendor_name_result && mysqli_num_rows($vendor_name_result) > 0) {
-			   // 	$row = mysqli_fetch_assoc($vendor_name_result);
-			   // 	$vendor_name = $row['shop_owner'];
-			   // 	$vendor_email = $row['email'];
+			   if ($vendor_name_result && mysqli_num_rows($vendor_name_result) > 0) {
+			   	$row = mysqli_fetch_assoc($vendor_name_result);
+			   	$vendor_name = $row['shop_owner'];
+			   	$vendor_email = $row['email'];
 
-			   // 	if (empty($id)) {
-			   // 		$mailer->send_vendor($vendor_name, $vendor_email);
-			   // 	}
-			   // }
+			   	if (empty($id)) {
+			   		// $mailer->send_vendor($vendor_name, $vendor_email);
+			   	}
+			   }
 
 			   if (empty($id)) {
 				   if (strpos($_SERVER['HTTP_REFERER'], 'vendor/register.php') > -1) {
@@ -331,21 +331,21 @@ class Users extends DBConnection
 			$save = $this->conn->query($sql);
 
 			if ($save) {
-				$resp['status'] = "success";
-				$vid = empty($id) ? $this->conn->insert_id : $id;
+				// $resp['status'] = "success";
+				// $vid = empty($id) ? $this->conn->insert_id : $id;
 
-				$select_query = "SELECT name FROM client_list WHERE id = $vid";
-				$client_name_result = mysqli_query($this->conn, $select_query);
+				// $select_query = "SELECT name FROM client_list WHERE id = $vid";
+				// $client_name_result = mysqli_query($this->conn, $select_query);
 
-				if ($client_name_result && mysqli_num_rows($client_name_result) > 0) {
-					$row = mysqli_fetch_assoc($client_name_result);
-					$client_name = $row['firstname'] . " " . $row['lastname'];
-					$client_email = $row['email'];
+				// if ($client_name_result && mysqli_num_rows($client_name_result) > 0) {
+				// 	$row = mysqli_fetch_assoc($client_name_result);
+				// 	$client_name = $row['firstname'] . " " . $row['lastname'];
+				// 	$client_email = $row['email'];
 
-					if (empty($id)) {
-						// $mailer->send_client($client_name, $client_email);
-					}
-				}
+				// 	if (empty($id)) {
+				// 		$mailer->send_client($client_name, $client_email);
+				// 	}
+				// }
 
 				if (empty($id)) {
 					if (strpos($_SERVER['HTTP_REFERER'], 'client/register.php') > -1) {
