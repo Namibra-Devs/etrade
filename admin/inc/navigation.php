@@ -73,9 +73,11 @@
                       </a>
                     </li>
                     <?php $status = $_settings->userdata('type')?>
-                    <?php $status = 1?>
+                    <?php
+                     $status = 1
+                    ?>
                     <?php 
-                    // if($_settings->userdata('type') == 1):
+                    if($_settings->userdata('type') == 1):
                      ?>
                     <?php if($status == 1): ?>
                     <li class="nav-header">Maintenance</li>

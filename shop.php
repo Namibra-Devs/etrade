@@ -63,7 +63,7 @@
 
                                         <!-- Start Single Select  -->
                                         <select class="single-select" id="price_range">
-                                            <option disabled value="0">Price Range</option>
+                                            <option disabled selected value="0">Price Range</option>
                                             <option value="1">1,000 - 20,000</option>
                                             <option value="2">20,000 - 100,000</option>
                                             <option value="3">100,000 - 500,000</option>
@@ -222,7 +222,9 @@
         </div>
     </div>
     <!-- Include footer -->
-    <?php include "./inc/footer.php"; ?>
+    <?php 
+    // include "./inc/footer.php"; 
+    ?>
 
     <!-- Product Quick View Modal Start -->
     <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">
@@ -563,8 +565,7 @@
     <script src="assets/js/vendor/counterup.js"></script>
     <script src="assets/js/vendor/waypoints.min.js"></script>
 
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+
     <script>
     var _base_url_ = '<?php echo base_url; ?>';
     </script>
@@ -653,6 +654,8 @@
 
 
 </body>
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
 
 </html>
 <?php 

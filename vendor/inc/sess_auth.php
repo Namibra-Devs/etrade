@@ -15,8 +15,8 @@ if(!isset($_SESSION['userdata']) && !strpos($link, 'login.php') && !strpos($link
 if(isset($_SESSION['userdata']) && strpos($link, 'login.php')){
 	redirect('vendor/index.php');
 }
-$module = array('','admin','vendor','client');
+$module = array('','admin','vendor','');
 if(isset($_SESSION['userdata']) && (strpos($link, 'index.php') || strpos($link, 'admin/')) && $_SESSION['userdata']['login_type'] !=  2){
-	echo "<script>alert('Access Denied!');location.replace('".base_url.$module[$_SESSION['userdata']['login_type']]."');</script>";
+	echo "<script>alert('Access Denied! Please logout from other accounts!');location.replace('".base_url.$module[$_SESSION['userdata']['login_type']]."');</script>";
     exit;
 }

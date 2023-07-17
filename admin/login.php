@@ -8,8 +8,7 @@
     start_loader()
   </script>
 
-  <center><img width="" height="" src="<?= validate_image($_settings->info('title_logo')) ?>" alt="System Logo" class="" id="logo-img"></center>
-  <div class="clear-fix my-2"></div>
+<center style="margin-top: 2rem;"><img width="300px" height="200px" src="../assets/images/bg/bg-image-15.png" alt="System Logo" class="" id="logo-img"></center>
   <div class="login-box">
 
     <!-- /.login-logo -->

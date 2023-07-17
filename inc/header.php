@@ -218,11 +218,16 @@ a.logo.logo-dark > img, .mobile-nav-brand > img {
 
  </head>
 
-
- <body class="sticky-header layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto; font-size: 1.5rem;">
+ 
+ <body class="sticky-header hold-transition login-page layout-top-nav layout-fixed layout-navbar-fixed" style="height: auto; font-size: 1.5rem;">
      <script>
          start_loader()
      </script>
+     <?php if($_settings->chk_flashdata('success')): ?>
+      <script>
+        alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+      </script>
+<?php endif;?>
      <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
@@ -414,4 +419,5 @@ a.logo.logo-dark > img, .mobile-nav-brand > img {
             </div>
         </div> -->
     </header>
+
 

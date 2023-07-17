@@ -1,3 +1,4 @@
+
 (function(window, document, $, undefined) {
     'use strict';
 
@@ -69,6 +70,13 @@
                     type: "post",
                     dataType: 'json',
                     data: data,
+                    error:err=>{
+                        console.error({err});
+                        // el.addClass('alert-danger').text("An error occured");
+                        // _this.prepend(el)
+                        // el.show('.modal')
+                        // end_loader();
+                    },
                     success: function(data) {
                         console.log({data}, "Hello AJAX");
                         _self.closest('div').find('button[type="submit"]').removeAttr('disabled');

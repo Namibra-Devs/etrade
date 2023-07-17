@@ -553,7 +553,8 @@
 
  </body>
 
- <?php var_dump($_SESSION); ?>
+ <?php 
+//  var_dump($_SESSION); ?>
 
  <?= $_settings->userdata('id') ?>
  <?= $_settings->userdata('login_type') ?>

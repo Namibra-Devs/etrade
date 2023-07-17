@@ -1,13 +1,16 @@
 <?php
 require_once('../config.php');
-// require_once('../helpers/mailer.php');
+require_once('../helpers/mail_handler.php');
 class Users extends DBConnection
 {
 	private $settings;
+	private $mailer;
 	public function __construct()
 	{
 		global $_settings;
+		global $_mailer;
 		$this->settings = $_settings;
+		$this->mailer = $_mailer;
 		parent::__construct();
 	}
 	public function __destruct()
@@ -180,10 +183,15 @@ class Users extends DBConnection
 		   }
 	   }
 	   $check  = $this->conn->query("SELECT * FROM `vendor_list` where username = '{$username}' and delete_flag = 0 " . (!empty($id) ? " and id !='{$id}'" : ''))->num_rows;
+	   $check  = $this->conn->query("SELECT * FROM `vendor_list` where username = '{$username}' and delete_flag = 0 " . (!empty($id) ? " and id !='{$id}'" : ''))->num_rows;
+	   $check_1  = $this->conn->query("SELECT * FROM `vendor_list` where email = '{$email}' and delete_flag = 0 " . (!empty($id) ? " and id !='{$id}'" : ''))->num_rows;
 	   if ($check > 0) {
 		   $resp['status'] = 'failed';
 		   $resp['msg'] = " Username already exists";
-	   } else {
+	   }else if($check_1 > 0){
+	       $resp['status'] = 'failed';
+		   $resp['msg'] = " Email already exists";
+	   }else {
 		   if (empty($id)) {
 			   $sql = "INSERT INTO `vendor_list` set {$data}";
 		   } else {
@@ -202,7 +210,7 @@ class Users extends DBConnection
 			   	$vendor_email = $row['email'];
 
 			   	if (empty($id)) {
-			   		// $mailer->send_vendor($vendor_name, $vendor_email);
+			   		// $this->mailer->send_vendor($vendor_name, $vendor_email);
 			   	}
 			   }
 
@@ -331,21 +339,21 @@ class Users extends DBConnection
 			$save = $this->conn->query($sql);
 
 			if ($save) {
-				// $resp['status'] = "success";
-				// $vid = empty($id) ? $this->conn->insert_id : $id;
+				$resp['status'] = "success";
+				$vid = empty($id) ? $this->conn->insert_id : $id;
 
-				// $select_query = "SELECT name FROM client_list WHERE id = $vid";
-				// $client_name_result = mysqli_query($this->conn, $select_query);
+				$select_query = "SELECT * FROM client_list WHERE id = $vid";
+				$client_name_result = mysqli_query($this->conn, $select_query);
 
-				// if ($client_name_result && mysqli_num_rows($client_name_result) > 0) {
-				// 	$row = mysqli_fetch_assoc($client_name_result);
-				// 	$client_name = $row['firstname'] . " " . $row['lastname'];
-				// 	$client_email = $row['email'];
+				if ($client_name_result && mysqli_num_rows($client_name_result) > 0) {
+					$row = mysqli_fetch_assoc($client_name_result);
+					$client_name = $row['firstname'] . " " . $row['lastname'];
+					$client_email = $row['email'];
 
-				// 	if (empty($id)) {
-				// 		$mailer->send_client($client_name, $client_email);
-				// 	}
-				// }
+					if (empty($id)) {
+						$this->mailer->send_client($client_name, $client_email);
+					}
+				}
 
 				if (empty($id)) {
 					if (strpos($_SERVER['HTTP_REFERER'], 'client/register.php') > -1) {
@@ -425,136 +433,114 @@ class Users extends DBConnection
 	public function forgot_password()
 	{
 		extract($_POST);
-
-
+	
 		$token = bin2hex(random_bytes(32));
-
+	
 		// Set the token expiration timestamp (e.g., 1 hour from now)
 		$expirationTimestamp = time() + 3600;
-
-
+	
 		// Store the token, email, and expiration timestamp in the database
 		$stmt = $this->conn->prepare("INSERT INTO password_reset (email, token, expiration_timestamp) VALUES (?, ?, ?)");
 		$stmt->bind_param("ssi", $email, $token, $expirationTimestamp);
 		$stmt->execute();
-
-		
-
+	
 		if (isset($ref) && $ref == "1") {
 			$query = $this->conn->prepare("SELECT firstname, lastname, email, NULL AS shop_owner
 				FROM `client_list` 
 				WHERE email = ? AND delete_flag = 0");
-			$query->bind_param("s", $email);
 		} else {
 			$query = $this->conn->prepare("SELECT NULL AS firstname, NULL AS lastname, email, shop_owner
 				FROM `vendor_list` 
 				WHERE email = ? AND delete_flag = 0");
-			$query->bind_param("s", $email);
 		}
-		
+	
+		$query->bind_param("s", $email);
 		$query->execute();
 		$result = $query->get_result();
-		
+	
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
-			$name = $row['firstname'] != null ? $row['firstname'] . " " . $row['lastname'] : $row['shop_owner'];
-		
+			$name = $row['firstname'] !== null ? $row['firstname'] . " " . $row['lastname'] : $row['shop_owner'];
+	
 			// Determine user type (1 for vendor, 2 for client)
-			$type = $row['firstname'] != null ? "1" : "2";
+			$type = $row['firstname'] !== null ? "1" : "2";
 			$email = $row['email'];
-		
+	
 			// Generate the password reset link
 			$reset_link = "http://localhost/etrade/etrade/reset-password.php?type=" . $type . "&token=" . $token;
-		
+	
 			// Send the password reset email to the user
-			// $mailer->send_forgot_password($name, $email, $reset_link);
-		
+			// $this->mailer->send_forgot_password($name, $email, $reset_link);
+	
 			$resp['status'] = 'success';
 			$resp['msg'] = $reset_link;
 		} else {
 			$resp['status'] = 'failed';
 			$resp['msg'] = "User does not exist";
 		}
-		
-
-
-
-	// 	$query = $this->conn->query("
-	// 	SELECT firstname, lastname, email, NULL AS shop_owner
-	// 	FROM `client_list` 
-	// 	WHERE email = '{$email}' AND delete_flag = 0 
-	// 	UNION 
-	// 	SELECT NULL AS firstname, NULL AS lastname, email, shop_owner
-	// 	FROM `vendor_list` 
-	// 	WHERE email = '{$email}' AND delete_flag = 0 
-	// 	LIMIT 1
-	// ");
-
-
-
-
-
+	
 		if ($resp['status'] == 'success')
 			$this->settings->set_flashdata('success', $resp['msg']);
-
+	
 		return json_encode($resp);
 	}
+	
 
 	public function reset_password()
-	{
-		extract($_POST);
-		$stmt = $this->conn->prepare("SELECT email, expiration_timestamp FROM password_reset WHERE token = ?");
-		$stmt->bind_param("s", $token);
-		$stmt->execute();
-		$result = $stmt->get_result();
-		$resetData = $result->fetch_assoc();
+{
+	extract($_POST);
+	$stmt = $this->conn->prepare("SELECT email, expiration_timestamp FROM password_reset WHERE token = ?");
+	$stmt->bind_param("s", $token);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$resetData = $result->fetch_assoc();
 
-		if ($resetData) {
-			$email = $resetData['email'];
-			$expirationTimestamp = $resetData['expiration_timestamp'];
+	if ($resetData) {
+		$email = $resetData['email'];
+		$expirationTimestamp = $resetData['expiration_timestamp'];
 
-			// Verify if the token is still valid (not expired)
-			if (time() <= $expirationTimestamp) {
-				// Token is valid, update the user's password in the database
-				$hashedPassword = md5($new_password);
+		// Verify if the token is still valid (not expired)
+		if (time() <= $expirationTimestamp) {
+			// Token is valid, update the user's password in the database
+			$hashedPassword = md5($new_password);
 
-				if($type == 1){
-					$stmt = $this->conn->prepare("UPDATE client_list SET password = ? WHERE email = ?");
-				}
-
-				else{
-					$stmt = $this->conn->prepare("UPDATE vendor_list SET password = ? WHERE email = ?");
-					$stmt->bind_param("ss", $hashedPassword, $email);
-					$stmt->execute();
-
-				}
-
-
-				// Delete the password reset entry from the database
-				$stmt = $this->conn->prepare("DELETE FROM password_reset WHERE token = ?");
-				$stmt->bind_param("s", $token);
-				$stmt->execute();
-
-				$resp['status'] = 'success';
-				$resp['msg'] = "Password reset successfully";
+			if ($type == 1) {
+				$stmt = $this->conn->prepare("UPDATE client_list SET password = ? WHERE email = ?");
 			} else {
-				// Token has expired
-				$resp['status'] = 'failed';
-				$resp['msg'] = "The password reset link has expired. Please request a new one";
+				$stmt = $this->conn->prepare("UPDATE vendor_list SET password = ? WHERE email = ?");
 			}
+
+			$stmt->bind_param("ss", $hashedPassword, $email);
+			$stmt->execute();
+
+			// Delete the password reset entry from the database
+			$stmt = $this->conn->prepare("DELETE FROM password_reset WHERE token = ?");
+			$stmt->bind_param("s", $token);
+			$stmt->execute();
+
+			$resp['status'] = 'success';
+			$resp['msg'] = "Password reset successfully";
 		} else {
-			// Token is not valid
+			// Token has expired
 			$resp['status'] = 'failed';
-			$resp['msg'] = "Invalid password reset link.";
+			$resp['msg'] = "The password reset link has expired. Please request a new one";
 		}
-
-		if ($resp['status'] === 'success') {
-			$this->settings->set_flashdata('success', $resp['msg']);
-		}
-
-		return json_encode($resp);
+	} else {
+		// Token is not valid
+		$resp['status'] = 'failed';
+		$resp['msg'] = "Invalid password reset link.";
 	}
+
+	if ($resp['status'] === 'success') {
+		$this->settings->set_flashdata('success', $resp['msg']);
+	}
+
+	return json_encode($resp);
 }
+
+	
+}
+
 
 
 $users = new users();
@@ -574,6 +560,7 @@ switch ($action) {
 		break;
 	case 'save_client':
 		echo $users->save_client();
+		break;
 	case 'forgot_password':
 		echo $users->forgot_password();
 		break;
@@ -586,3 +573,4 @@ switch ($action) {
 		// echo $sysset->index();
 		break;
 }
+?>

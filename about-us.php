@@ -286,7 +286,9 @@
         </div>
     </div>
     <!-- Include footer -->
-   <?php include "./inc/footer.php"; ?>
+   <?php
+    // include "./inc/footer.php";
+  ?>
 
     <!-- Product Quick View Modal Start -->
     <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">

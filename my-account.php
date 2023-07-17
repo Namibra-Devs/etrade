@@ -1,6 +1,6 @@
 <?php $title = "My Account"; ?>
 <?php require_once("inc/header.php")  ?>
-<?php if (!($_settings->userdata('id') > 0))  echo '<script>window.location.href = "'.base_url.'sign-in.php";</script>'; ?>
+<?php if (!($_settings->userdata('id')))  echo '<script>window.location.href = "'.base_url.'sign-in.php";</script>'; ?>
 
     <main class="main-wrapper">
         <!-- Start Breadcrumb Area  -->

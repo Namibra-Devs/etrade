@@ -244,53 +244,53 @@ class Mailer {
 }
 
 // Create Mailer Instance
-$mailer = new Mailer();
-$recipient = 'abdulsamadbalogun25@gmail.com';
-$subject = 'Test HTML Email';
+$_mailer = new Mailer();
+// $recipient = 'abdulsamadbalogun25@gmail.com';
+// $subject = 'Test HTML Email';
 
-$body = '
-    <html>
-    <head>
-        <title>Test HTML Email</title>
-        <style>
-            body {
-                background-color: #f6f6f6;
-                font-family: Arial, sans-serif;
-            }
-            .container {
-                background-color: #ffffff;
-                border-radius: 10px;
-                padding: 20px;
-                margin: 20px auto;
-                max-width: 400px;
-            }
-            h2 {
-                color: #333333;
-                text-align: center;
-            }
-            p {
-                color: #555555;
-                line-height: 1.5;
-                margin-bottom: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h2>Test HTML Email</h2>
-            <p>This is a test email with HTML content and CSS styling.</p>
-            <p>You can customize the email template further to meet your requirements.</p>
-        </div>
-    </body>
-    </html>
-';
+// $body = '
+//     <html>
+//     <head>
+//         <title>Test HTML Email</title>
+//         <style>
+//             body {
+//                 background-color: #f6f6f6;
+//                 font-family: Arial, sans-serif;
+//             }
+//             .container {
+//                 background-color: #ffffff;
+//                 border-radius: 10px;
+//                 padding: 20px;
+//                 margin: 20px auto;
+//                 max-width: 400px;
+//             }
+//             h2 {
+//                 color: #333333;
+//                 text-align: center;
+//             }
+//             p {
+//                 color: #555555;
+//                 line-height: 1.5;
+//                 margin-bottom: 20px;
+//             }
+//         </style>
+//     </head>
+//     <body>
+//         <div class="container">
+//             <h2>Test HTML Email</h2>
+//             <p>This is a test email with HTML content and CSS styling.</p>
+//             <p>You can customize the email template further to meet your requirements.</p>
+//         </div>
+//     </body>
+//     </html>
+// ';
 
-$result = $mailer->send_mail($recipient, $subject, $body);
-if ($result === true) {
-    echo 'Email sent successfully!';
-} else {
-    echo $result;
-}
+// $result = $mailer->send_mail($recipient, $subject, $body);
+// if ($result === true) {
+//     echo 'Email sent successfully!';
+// } else {
+//     echo $result;
+// }
 
 
 // <!DOCTYPE html>

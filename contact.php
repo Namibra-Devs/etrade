@@ -1,7 +1,6 @@
 <?php $title = "Contact With Us"; ?>
 <?php require_once("inc/header.php")  ?>
 
-
     <main class="main-wrapper">
         <!-- Start Breadcrumb Area  -->
         <div class="axil-breadcrumb-area">
@@ -159,7 +158,9 @@
         </div>
     </div>
     <!-- Include footer -->
-    <?php include "./inc/footer.php"; ?>
+    <?php 
+    // include "./inc/footer.php";
+     ?>
 
     <!-- Product Quick View Modal Start -->
     <div class="modal fade quick-view-product" id="quick-view-modal" tabindex="-1" aria-hidden="true">
@@ -504,5 +505,9 @@
     <script src="assets/js/main.js"></script>
 
 </body>
-
+<?php if($_settings->chk_flashdata('success')): ?>
+      <script>
+        alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+      </script>
+<?php endif;?>
 </html>
